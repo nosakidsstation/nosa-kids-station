@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosa Kids Station — Belajar Seru, Tumbuh Cerdas!</title>
+  <meta name="description" content="Nosa Kids Station menghadirkan dunia pengetahuan alam dalam animasi berwarna-warni. Edukatif, menyenangkan, dan dipercaya orang tua Indonesia." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 35%, #4ECDC4 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='15'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-bubbles { position: absolute; inset: 0; pointer-events: none; }
+    .bubble {
+      position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) scale(1); opacity: 0; }
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px;
+      padding: 120px 24px 80px;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+    }
+    .hero-text { color: white; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white; padding: 8px 20px; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 700;
+      margin-bottom: 24px;
+      animation: slideDown 0.7s ease;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #FFD166; animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1; margin-bottom: 20px;
+      animation: heroTitle 0.8s ease 0.2s both;
+    }
+    .hero-text h1 em { font-style: normal; color: var(--accent); }
+    @keyframes heroTitle { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .hero-text p {
+      font-size: 1.1rem; opacity: 0.9; line-height: 1.75;
+      margin-bottom: 36px; max-width: 480px;
+      animation: heroText 0.8s ease 0.35s both;
+    }
+    @keyframes heroText { from{opacity:0;transform:translateY(20px)} to{opacity:0.9;transform:translateY(0)} }
+    .hero-btns {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: heroBtns 0.8s ease 0.5s both;
+    }
+    @keyframes heroBtns { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .hero-visual {
+      position: relative;
+      animation: heroVisual 0.9s ease 0.3s both;
+    }
+    @keyframes heroVisual { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+    .hero-card-main {
+      background: rgba(255,255,255,0.95);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+    }
+    .hero-emoji-main { font-size: 5rem; display: block; margin-bottom: 10px; animation: bounce 2s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .hero-card-main h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 6px; }
+    .hero-card-main p { color: var(--text-muted); font-size: 0.9rem; }
+    .hero-floater {
+      position: absolute;
+      background: white;
+      border-radius: 16px;
+      padding: 12px 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.85rem; font-weight: 700;
+      animation: floatCard 3s ease-in-out infinite;
+    }
+    .hero-floater-1 { bottom: -16px; left: -16px; animation-delay: 0s; }
+    .hero-floater-2 { top: -16px; right: -16px; animation-delay: 1.5s; }
+    @keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .floater-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .floater-icon.orange { background: #FFF0E6; }
+    .floater-icon.teal { background: #E6FFFE; }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: white;
+      box-shadow: var(--shadow-md);
+      padding: 28px 0;
+      position: relative; z-index: 5;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center; padding: 16px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: var(--font-heading); font-weight: 900;
+      font-size: 2.2rem; color: var(--primary);
+      display: flex; align-items: center; justify-content: center; gap: 2px;
+    }
+    .stat-number .suffix { font-size: 1.5rem; }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
+
+    /* ===== FEATURES ===== */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .feature-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 36px 28px; text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0); transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+    .feature-icon {
+      width: 80px; height: 80px; border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; margin: 0 auto 20px;
+    }
+    .feature-icon.orange { background: linear-gradient(135deg, #FFF0E6, #FFD9C0); }
+    .feature-icon.teal { background: linear-gradient(135deg, #E6FFFE, #C0F5F1); }
+    .feature-icon.yellow { background: linear-gradient(135deg, #FFFAE6, #FFF0B0); }
+    .feature-card h3 { margin-bottom: 10px; font-size: 1.15rem; }
+    .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* ===== PRODUCTS PREVIEW ===== */
+    .products-preview { background: var(--bg2); }
+    .products-scroll {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-preview-card {
+      background: white; border-radius: var(--radius-md);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .product-preview-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .product-preview-img {
+      height: 200px; background: linear-gradient(135deg, #FFF0E6, #FFD9C0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; position: relative;
+    }
+    .product-preview-img .badge-cat {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--primary); color: white;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px;
+    }
+    .product-preview-body { padding: 20px; }
+    .product-preview-body h3 { font-size: 1rem; margin-bottom: 6px; }
+    .product-preview-body p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px; }
+    .product-preview-body .price { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: var(--primary); }
+
+    /* ===== VIDEO TEASER ===== */
+    .video-section { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; }
+    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .video-text h2 { color: white; margin-bottom: 16px; }
+    .video-text p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 28px; line-height: 1.8; }
+    .video-features { list-style: none; margin-bottom: 32px; }
+    .video-features li {
+      display: flex; align-items: center; gap: 12px;
+      color: rgba(255,255,255,0.85); font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .video-features li .icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--primary); display: flex; align-items: center;
+      justify-content: center; font-size: 0.75rem; flex-shrink: 0;
+    }
+    .video-embed-wrap {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      position: relative; aspect-ratio: 16/9;
+    }
+    .video-embed-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .video-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: white; cursor: pointer;
+    }
+    .play-btn {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.8rem; color: var(--primary);
+      transition: var(--transition);
+    }
+    .play-btn:hover { transform: scale(1.12); }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 28px; box-shadow: var(--shadow-sm);
+      transition: var(--transition); position: relative;
+    }
+    .testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .testi-card::before {
+      content: '"'; font-size: 5rem; color: var(--primary); opacity: 0.12;
+      position: absolute; top: 10px; right: 20px;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 14px; }
+    .testi-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; color: white;
+      font-family: var(--font-heading);
+    }
+    .testi-author-info strong { display: block; font-size: 0.92rem; font-weight: 800; }
+    .testi-author-info span { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
+      padding: 90px 0; text-align: center; color: white;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.12) 0%, transparent 70%);
+    }
+    .cta-section h2 { color: white; margin-bottom: 14px; position: relative; }
+    .cta-section p { opacity: 0.9; max-width: 520px; margin: 0 auto 36px; font-size: 1.05rem; position: relative; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-scroll { grid-template-columns: repeat(2, 1fr); }
+      .video-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-text p { margin: 0 auto 36px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .products-scroll { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="favicon.svg" alt="Nosa Kids Logo" />
+      Nosa <span>Kids</span> Station
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">🏠 Beranda</a></li>
+      <li><a href="tentang.html">👋 Tentang</a></li>
+      <li><a href="produk.html">🛍️ Produk</a></li>
+      <li><a href="galeri.html">🖼️ Galeri</a></li>
+      <li><a href="kontak.html">📞 Kontak</a></li>
+    </ul>
+    <a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!%20Saya%20ingin%20tahu%20lebih%20lanjut." class="btn btn-wa nav-cta" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat WA
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Beranda</a>
+  <a href="tentang.html">👋 Tentang Kami</a>
+  <a href="produk.html">🛍️ Produk</a>
+  <a href="galeri.html">🖼️ Galeri</a>
+  <a href="kontak.html">📞 Kontak</a>
+  <a href="https://wa.me/6282240142587" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bubbles" id="heroBubbles"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        ✨ Konten Edukatif Anak Indonesia
+      </div>
+      <h1>Membangkitkan <em>Rasa Ingin Tahu</em>, Menginspirasi Petualangan Belajar</h1>
+      <p>Nosa Kids Station menghadirkan dunia pengetahuan alam dalam animasi berwarna-warni yang memukau. Biarkan anak-anak Anda menjelajahi keajaiban dunia dengan cara yang menyenangkan dan edukatif.</p>
+      <div class="hero-btns">
+        <a href="https://www.youtube.com/@NosaKidsStation" class="btn btn-ghost btn-lg" target="_blank">
+          <i class="fab fa-youtube" style="color:#FF0000"></i> Tonton Video Kami
+        </a>
+        <a href="produk.html" class="btn btn-lg" style="background:rgba(255,255,255,0.2);color:white;border:2px solid rgba(255,255,255,0.5);backdrop-filter:blur(8px);">
+          🛍️ Jelajahi Produk
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-main">
+        <span class="hero-emoji-main">🦁</span>
+        <h3>Nosa Menjelajah Dunia!</h3>
+        <p>Bersama karakter favorit anak</p>
+      </div>
+      <div class="hero-floater hero-floater-1">
+        <div class="floater-icon orange">📚</div>
+        <div>
+          <strong style="font-size:0.92rem;display:block">Edukatif</strong>
+          <span style="font-size:0.78rem;color:var(--text-muted)">Setiap video berkualitas</span>
+        </div>
+      </div>
+      <div class="hero-floater hero-floater-2">
+        <div class="floater-icon teal">⭐</div>
+        <div>
+          <strong style="font-size:0.92rem;display:block">Dipercaya</strong>
+          <span style="font-size:0.78rem;color:var(--text-muted)">Ribuan keluarga</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <div class="stat-number">
+          <span data-target="250">0</span><span class="suffix">+</span>
+        </div>
+        <div class="stat-label">Subscriber YouTube</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-number">
+          <span data-target="30">0</span><span class="suffix">+</span>
+        </div>
+        <div class="stat-label">Video Edukatif</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-number">
+          <span data-target="3">0</span><span class="suffix"></span>
+        </div>
+        <div class="stat-label">Kategori Produk</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-number">
+          <span data-target="100">0</span><span class="suffix">%</span>
+        </div>
+        <div class="stat-label">Konten Aman Anak</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KENAPA NOSA KIDS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Keunggulan Kami</div>
+      <h2>Kenapa Memilih Nosa Kids Station?</h2>
+      <p>Dirancang dengan cinta untuk mendukung tumbuh kembang si kecil melalui konten yang berkualitas dan aman.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon orange">📚</div>
+        <h3>Edukatif &amp; Menyenangkan</h3>
+        <p>Setiap video kami dirancang dengan pendekatan ensiklopedia visual yang mengubah pembelajaran menjadi petualangan seru. Anak-anak belajar tentang alam, sains, dan dunia sekitar tanpa merasa sedang belajar.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon teal">🎨</div>
+        <h3>Animasi Berkualitas Tinggi</h3>
+        <p>Ilustrasi cerah dan karakter khas Nosa Kids yang menggemaskan membuat setiap episode menjadi pengalaman visual yang tak terlupakan dan mengasyikkan.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon yellow">👨‍👩‍👧‍👦</div>
+        <h3>Dipercaya Orang Tua</h3>
+        <p>Konten aman, sesuai usia, dan dirancang untuk menumbuhkan nilai-nilai positif sambil memperluas wawasan anak. Nikmati waktu berkualitas bersama keluarga.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon orange">🌿</div>
+        <h3>Cinta Alam &amp; Lingkungan</h3>
+        <p>Menanamkan rasa cinta dan kepedulian terhadap alam sejak dini melalui cerita-cerita yang menginspirasi tentang dunia tumbuhan, hewan, dan alam semesta.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon teal">🧠</div>
+        <h3>Stimulasi Kognitif</h3>
+        <p>Konten dirancang untuk merangsang rasa ingin tahu, kemampuan berpikir kritis, dan daya imajinasi anak melalui pertanyaan-pertanyaan menarik setiap episode.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon yellow">🏆</div>
+        <h3>Produk Pendamping</h3>
+        <p>Buku cerita, flash card, dan merchandise eksklusif yang memperkaya pengalaman belajar si kecil tidak hanya dari layar, tapi juga dalam kehidupan sehari-hari.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK PREVIEW -->
+<section class="section products-preview">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Produk Pilihan</div>
+      <h2>Bawa Petualangan Nosa ke Rumah Anda!</h2>
+      <p>Produk edukatif berkualitas yang dirancang untuk memperkaya pengalaman belajar si kecil.</p>
+    </div>
+    <div id="homeProductsPreview" class="products-scroll"></div>
+    <div id="homeProductsEmpty" class="text-center" style="display:none;margin-top:24px;color:var(--text-muted)">
+      Belum ada produk yang bisa ditampilkan. Tambahkan produk di panel admin untuk melihatnya di beranda.
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="produk.html" class="btn btn-primary btn-lg">🛍️ Lihat Semua Produk</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="section video-section">
+  <div class="container">
+    <div class="video-grid">
+      <div class="video-text fade-up">
+        <div class="badge" style="background:linear-gradient(135deg,var(--primary-light),var(--primary));color:white;display:inline-block;padding:6px 20px;border-radius:100px;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">YouTube Channel</div>
+        <h2 style="color:white">Tonton Petualangan Edukatif Kami!</h2>
+        <p>Bergabunglah dengan Nosa dan teman-teman menjelajahi keajaiban alam, dunia hewan, sains sederhana, dan banyak lagi — semua dalam animasi yang penuh warna!</p>
+        <ul class="video-features">
+          <li><span class="icon">🐾</span> Dunia Hewan yang Menakjubkan</li>
+          <li><span class="icon">🌱</span> Tumbuhan & Alam Sekitar</li>
+          <li><span class="icon">🔬</span> Sains Sederhana untuk Anak</li>
+          <li><span class="icon">🌍</span> Geografi & Budaya Nusantara</li>
+          <li><span class="icon">🌈</span> Fenomena Alam yang Seru</li>
+        </ul>
+        <a href="https://www.youtube.com/@NosaKidsStation" class="btn btn-primary btn-lg" target="_blank">
+          <i class="fab fa-youtube"></i> Kunjungi Channel Kami
+        </a>
+      </div>
+      <div class="fade-up">
+        <div class="video-embed-wrap">
+          <!-- GANTI src dengan URL video YouTube terbaru Anda -->
+          <div class="video-placeholder" onclick="playVideo(this)">
+            <div class="play-btn"><i class="fas fa-play" style="margin-left:4px"></i></div>
+            <p style="font-weight:700;font-size:1.1rem">▶ Tonton Video Terbaru</p>
+            <p style="font-size:0.88rem;opacity:0.8;margin-top:6px">Klik untuk memutar</p>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;margin-top:12px;text-align:center">
+          💡 Ganti dengan embed YouTube Anda di file index.html
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Testimoni</div>
+      <h2>Apa Kata Keluarga Indonesia?</h2>
+      <p>Ribuan orang tua mempercayakan pendidikan awal anak mereka kepada Nosa Kids Station.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Anak saya yang berusia 5 tahun jadi suka bertanya tentang hewan setelah nonton Nosa Kids. Kontennya benar-benar edukatif dan tidak membosankan. Saya sebagai orang tua sangat terbantu!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div class="testi-author-info">
+            <strong>Ibu Sarah</strong>
+            <span>Mama Zaka, 5 thn — Jakarta</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Flash card-nya keren banget! Anak kami cepat hafal nama-nama hewan dan tumbuhan. Gambarnya bagus dan berkualitas. Worth it banget belinya. Sudah beli flash card dan buku!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,var(--secondary),var(--secondary-dark))">R</div>
+          <div class="testi-author-info">
+            <strong>Bapak Reza</strong>
+            <span>Papa Nayla, 4 thn — Bandung</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Seneng banget ada konten edukasi lokal yang berkualitas kayak gini. Animasinya bagus, suaranya enak didengar anak-anak. Semoga terus berkembang dan makin banyak videonya!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#6C63FF,#4A42CC)">D</div>
+          <div class="testi-author-info">
+            <strong>Ibu Dewi</strong>
+            <span>Mama Arya & Bintang — Surabaya</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="fade-up">Siap Memulai Petualangan Belajar? 🚀</h2>
+    <p class="fade-up">Bergabunglah dengan keluarga Nosa Kids Station dan berikan pengalaman belajar terbaik untuk si kecil!</p>
+    <div class="cta-btns fade-up">
+      <a href="https://www.youtube.com/@NosaKidsStation" class="btn btn-ghost btn-lg" target="_blank">
+        <i class="fab fa-youtube" style="color:#FF0000"></i> Subscribe YouTube
+      </a>
+      <a href="produk.html" class="btn btn-lg" style="background:rgba(255,255,255,0.2);color:white;border:2px solid rgba(255,255,255,0.5);">
+        🛍️ Belanja Sekarang
+      </a>
+      <a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!%20Saya%20mau%20tanya%20tentang%20produk." class="btn btn-wa btn-lg" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chat WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">Nosa <span>Kids</span> Station</span>
+        <p>Menghadirkan dunia pengetahuan alam dalam animasi berwarna-warni yang memukau. Biarkan anak Anda menjelajahi keajaiban dunia dengan cara yang menyenangkan dan edukatif.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@NosaKidsStation" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com/nosakidsstation" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/nosakidsstation" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://tiktok.com/@nosa.kids.station" title="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/6282240142587" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Beranda</a></li>
+          <li><a href="tentang.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Tentang Kami</a></li>
+          <li><a href="produk.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Produk</a></li>
+          <li><a href="galeri.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Galeri</a></li>
+          <li><a href="kontak.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="https://tokopedia.com" target="_blank"><i class="fas fa-store" style="font-size:0.7rem"></i> Tokopedia</a></li>
+          <li><a href="https://shopee.co.id" target="_blank"><i class="fas fa-shopping-bag" style="font-size:0.7rem"></i> Shopee</a></li>
+          <li><a href="https://tiktok.com/shop" target="_blank"><i class="fab fa-tiktok" style="font-size:0.7rem"></i> TikTok Shop</a></li>
+          <li><a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp" style="font-size:0.7rem"></i> Order via WA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Newsletter</h4>
+        <p style="font-size:0.88rem;opacity:0.7;margin-bottom:14px">Dapatkan info terbaru, tips parenting, dan promo eksklusif!</p>
+        <input type="email" placeholder="Email Anda..." />
+        <button class="btn btn-primary btn-block" onclick="subscribeNewsletter()">
+          📬 Subscribe Gratis
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 Nosa Kids Station. All rights reserved. Made with ❤️ for children of Indonesia.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!%20Saya%20tertarik%20dengan%20produk%20Anda." class="wa-float" target="_blank" title="Chat WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-float-tooltip">Chat via WhatsApp</span>
+</a>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Bubble generator
+  const bubbleContainer = document.getElementById('heroBubbles');
+  for (let i = 0; i < 12; i++) {
+    const b = document.createElement('div');
+    b.className = 'bubble';
+    const size = Math.random() * 80 + 20;
+    b.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      animation-duration:${Math.random()*8+8}s;
+      animation-delay:${Math.random()*8}s;
+    `;
+    bubbleContainer.appendChild(b);
+  }
+
+  function playVideo(el) {
+    const wrap = el.closest('.video-embed-wrap');
+    // GANTI video_id_youtube dengan ID video YouTube Anda
+    wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/gM-dhU4x2ug?autoplay=1" allow="autoplay; fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>`;
+  }
+
+  function subscribeNewsletter() {
+    const input = document.querySelector('.footer-newsletter input');
+    if (input.value && input.value.includes('@')) {
+      alert('Terima kasih! Anda telah berlangganan newsletter Nosa Kids Station 🎉');
+      input.value = '';
+    } else {
+      alert('Mohon masukkan email yang valid ya!');
+    }
+  }
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

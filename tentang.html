@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Kami — Nosa Kids Station</title>
+  <meta name="description" content="Kisah, visi, misi, dan filosofi di balik Nosa Kids Station — platform edukasi anak terdepan di Indonesia." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== STORY SECTION ===== */
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 70px; align-items: center;
+    }
+    .story-img-wrap {
+      position: relative;
+    }
+    .story-img-main {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: var(--radius-lg);
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem;
+      box-shadow: var(--shadow-lg);
+      position: relative; overflow: hidden;
+    }
+    .story-img-main::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 60%);
+    }
+    .story-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: white; border-radius: var(--radius-md);
+      padding: 18px 24px; box-shadow: var(--shadow-md);
+      text-align: center; min-width: 140px;
+    }
+    .story-badge strong { font-family: var(--font-heading); font-size: 2rem; color: var(--primary); display: block; }
+    .story-badge span { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; }
+    .story-badge-2 {
+      position: absolute; top: -16px; left: -16px;
+      background: var(--accent); border-radius: var(--radius-sm);
+      padding: 14px 20px; box-shadow: var(--shadow-sm);
+    }
+    .story-badge-2 span { font-size: 0.85rem; font-weight: 800; color: var(--text); }
+    .story-text .badge { display: inline-block; background: linear-gradient(135deg,var(--primary-light),var(--primary)); color:white; font-size:0.78rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 20px; border-radius:100px; margin-bottom:14px; }
+    .story-text h2 { margin-bottom: 20px; }
+    .story-text p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; font-size: 1.02rem; }
+    .philosophy-box {
+      background: linear-gradient(135deg, var(--bg2), #FFF0E6);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 20px 24px; margin-top: 28px;
+    }
+    .philosophy-box p { color: var(--text); font-style: italic; font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+    .philosophy-box small { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* ===== VALUES ===== */
+    .values-section { background: var(--bg2); }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 32px 24px; text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .value-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .value-icon { font-size: 2.8rem; margin-bottom: 16px; display: block; }
+    .value-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+    .value-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* ===== VISI MISI ===== */
+    .visi-misi-grid {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 40px; align-items: start;
+    }
+    .visi-box {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: var(--radius-md);
+      padding: 40px 32px; color: white;
+      position: relative; overflow: hidden;
+    }
+    .visi-box::before {
+      content: '👁️'; position: absolute;
+      right: 24px; bottom: 20px;
+      font-size: 5rem; opacity: 0.15;
+    }
+    .visi-box h3 { font-size: 1.3rem; margin-bottom: 16px; color: var(--accent); }
+    .visi-box p { opacity: 0.9; line-height: 1.8; font-size: 1.02rem; }
+    .misi-box {
+      background: white; border-radius: var(--radius-md);
+      padding: 36px 32px; box-shadow: var(--shadow-sm);
+    }
+    .misi-box h3 { font-size: 1.3rem; margin-bottom: 24px; color: var(--text); }
+    .misi-item {
+      display: flex; gap: 16px;
+      margin-bottom: 20px; padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .misi-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .misi-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      color: white; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading); font-weight: 900; font-size: 1rem;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .misi-item h4 { font-size: 1rem; margin-bottom: 6px; color: var(--primary); }
+    .misi-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ===== TEAM / JOURNEY ===== */
+    .journey-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .journey-card {
+      text-align: center; padding: 32px 24px;
+      background: white; border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm); transition: var(--transition);
+    }
+    .journey-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .journey-year {
+      font-family: var(--font-heading); font-weight: 900;
+      font-size: 2.5rem; color: var(--primary); margin-bottom: 8px;
+    }
+    .journey-card h3 { margin-bottom: 10px; font-size: 1.1rem; }
+    .journey-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .visi-misi-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-img-wrap { display: none; }
+      .journey-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="favicon.svg" alt="Logo" />
+      Nosa <span>Kids</span> Station
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Beranda</a></li>
+      <li><a href="tentang.html" class="active">👋 Tentang</a></li>
+      <li><a href="produk.html">🛍️ Produk</a></li>
+      <li><a href="galeri.html">🖼️ Galeri</a></li>
+      <li><a href="kontak.html">📞 Kontak</a></li>
+    </ul>
+    <a href="https://wa.me/6282240142587" class="btn btn-wa nav-cta" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat WA
+    </a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Beranda</a>
+  <a href="tentang.html">👋 Tentang Kami</a>
+  <a href="produk.html">🛍️ Produk</a>
+  <a href="galeri.html">🖼️ Galeri</a>
+  <a href="kontak.html">📞 Kontak</a>
+  <a href="https://wa.me/6282240142587" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Chat WA</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <h1>👋 Tentang Nosa Kids Station</h1>
+    <p>Kisah di balik platform edukasi anak yang menginspirasi jutaan keluarga Indonesia.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span>›</span>
+      <span>Tentang Kami</span>
+    </div>
+  </div>
+</div>
+
+<!-- KISAH -->
+<section class="section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img-wrap fade-in">
+        <div class="story-img-main">🦁</div>
+        <div class="story-badge">
+          <strong>250+</strong>
+          <span>Subscriber</span>
+        </div>
+        <div class="story-badge-2">
+          <span>🌱 Terus Berkembang</span>
+        </div>
+      </div>
+      <div class="story-text fade-up">
+        <div class="badge">Kisah Kami</div>
+        <h2>Bermula dari Mimpi Sederhana</h2>
+        <p>Di Nosa Kids Station, kami percaya bahwa setiap anak adalah penjelajah alami. Rasa ingin tahu mereka adalah kunci untuk membuka dunia pengetahuan yang luas dan tak terbatas.</p>
+        <p>Dimulai sebagai kanal YouTube, Nosa Kids Station lahir dari mimpi sederhana: menciptakan konten edukasi yang tidak hanya mendidik, tetapi juga menginspirasi anak-anak untuk mencintai proses belajar itu sendiri.</p>
+        <p>Kami mengemas pengetahuan tentang alam, sains, dan kehidupan sehari-hari dalam format animasi yang penuh warna dan karakter yang mudah diingat. Kini, dengan lebih dari 250 subscriber dan terus berkembang, kami berkomitmen menjadi sahabat terpercaya dalam perjalanan pendidikan anak Anda.</p>
+        <div class="philosophy-box">
+          <p>"Belajar Melalui Bertanya, Tumbuh Melalui Menjelajah"</p>
+          <small>— Filosofi Nosa Kids Station</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Nilai-Nilai Kami</div>
+      <h2>Fondasi yang Kami Pegang Teguh</h2>
+      <p>Empat nilai utama yang menjadi kompas dalam setiap langkah perjalanan Nosa Kids Station.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <span class="value-icon">🔍</span>
+        <h3>Rasa Ingin Tahu</h3>
+        <p>Mendorong anak untuk selalu bertanya, mencari, dan menemukan jawaban dari setiap hal yang mereka jumpai di dunia.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">💚</span>
+        <h3>Cinta Alam</h3>
+        <p>Menanamkan kesadaran dan kepedulian terhadap lingkungan sejak dini melalui kisah-kisah yang mengagumi keajaiban alam.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">🎨</span>
+        <h3>Kreativitas</h3>
+        <p>Merangsang imajinasi anak melalui visual yang penuh warna, karakter yang menarik, dan cerita yang mengajak berimajinasi.</p>
+      </div>
+      <div class="value-card fade-up">
+        <span class="value-icon">🤝</span>
+        <h3>Kepercayaan</h3>
+        <p>Membangun kepercayaan orang tua dengan menghadirkan konten yang aman, bertanggung jawab, dan sesuai perkembangan anak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Visi &amp; Misi</div>
+      <h2>Arah dan Tujuan Kami</h2>
+      <p>Dengan visi yang jelas dan misi yang terukur, kami bergerak maju bersama-sama.</p>
+    </div>
+    <div class="visi-misi-grid">
+      <div class="visi-box fade-up">
+        <h3>🎯 VISI</h3>
+        <p>Menjadi platform edukasi anak terdepan di Indonesia yang menginspirasi generasi penjelajah muda yang cerdas, kreatif, dan mencintai alam.</p>
+      </div>
+      <div class="misi-box fade-up">
+        <h3>🚀 MISI</h3>
+        <div class="misi-item">
+          <div class="misi-num">1</div>
+          <div>
+            <h4>Menciptakan Konten Berkualitas</h4>
+            <p>Menghadirkan video animasi edukatif berkualitas tinggi yang mengubah pengetahuan kompleks menjadi cerita visual yang mudah dipahami dan menyenangkan.</p>
+          </div>
+        </div>
+        <div class="misi-item">
+          <div class="misi-num">2</div>
+          <div>
+            <h4>Membangun Karakter Positif</h4>
+            <p>Menanamkan nilai-nilai keingintahuan, kepedulian terhadap lingkungan, dan kecintaan pada pembelajaran seumur hidup.</p>
+          </div>
+        </div>
+        <div class="misi-item">
+          <div class="misi-num">3</div>
+          <div>
+            <h4>Menjembatani Orang Tua dan Anak</h4>
+            <p>Memberikan orang tua kepercayaan penuh dengan konten yang aman, edukatif, dan dapat menjadi momen berkualitas bersama anak.</p>
+          </div>
+        </div>
+        <div class="misi-item">
+          <div class="misi-num">4</div>
+          <div>
+            <h4>Mengembangkan Ekosistem Pembelajaran</h4>
+            <p>Tidak hanya video, kami menghadirkan produk edukatif yang memperkaya pengalaman belajar di rumah — dari buku cerita hingga permainan interaktif.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="section bg-warm">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Perjalanan Kami</div>
+      <h2>Milestones Nosa Kids Station</h2>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-card fade-up">
+        <div class="journey-year">2024</div>
+        <h3>🚀 Lahirnya Nosa Kids</h3>
+        <p>Kanal YouTube Nosa Kids Station resmi diluncurkan dengan video pertama tentang dunia hewan yang langsung disambut antusias.</p>
+      </div>
+      <div class="journey-card fade-up">
+        <div class="journey-year">2025</div>
+        <h3>📦 Ekspansi Produk</h3>
+        <p>Meluncurkan lini produk fisik: buku cerita full color, flash card edukatif, dan merchandise karakter Nosa Kids pertama.</p>
+      </div>
+      <div class="journey-card fade-up">
+        <div class="journey-year">2026+</div>
+        <h3>🌟 Mimpi Selanjutnya</h3>
+        <p>Terus berkembang dengan target ribuan subscriber, lebih banyak produk inovatif, dan hadir di lebih banyak platform edukasi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="fade-up">Bergabunglah dengan Perjalanan Kami! 🌟</h2>
+    <p class="fade-up">Bersama Nosa Kids Station, mari kita ciptakan generasi penjelajah muda yang cerdas dan mencintai belajar.</p>
+    <div class="cta-btns fade-up">
+      <a href="produk.html" class="btn btn-ghost btn-lg">🛍️ Lihat Produk</a>
+      <a href="kontak.html" class="btn btn-lg" style="background:rgba(255,255,255,0.2);color:white;border:2px solid rgba(255,255,255,0.5)">📞 Hubungi Kami</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">Nosa <span>Kids</span> Station</span>
+        <p>Platform edukasi anak terdepan di Indonesia yang menginspirasi generasi penjelajah muda.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@NosaKidsStation" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com/nosakidsstation" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/nosakidsstation" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://tiktok.com/@nosa.kids.station" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Beranda</a></li>
+          <li><a href="tentang.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Tentang Kami</a></li>
+          <li><a href="produk.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Produk</a></li>
+          <li><a href="galeri.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Galeri</a></li>
+          <li><a href="kontak.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="https://tokopedia.com" target="_blank"><i class="fas fa-store" style="font-size:0.7rem"></i> Tokopedia</a></li>
+          <li><a href="https://shopee.co.id" target="_blank"><i class="fas fa-shopping-bag" style="font-size:0.7rem"></i> Shopee</a></li>
+          <li><a href="https://tiktok.com/shop" target="_blank"><i class="fab fa-tiktok" style="font-size:0.7rem"></i> TikTok Shop</a></li>
+          <li><a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp" style="font-size:0.7rem"></i> Order via WA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Newsletter</h4>
+        <p style="font-size:0.88rem;opacity:0.7;margin-bottom:14px">Update konten, tips parenting & promo eksklusif!</p>
+        <input type="email" placeholder="Email Anda..." />
+        <button class="btn btn-primary btn-block" onclick="alert('Terima kasih sudah subscribe! 🎉')">📬 Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 Nosa Kids Station. All rights reserved. Made with ❤️ for children of Indonesia.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!" class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-float-tooltip">Chat via WhatsApp</span>
+</a>
+
+<script src="assets/js/main.js"></script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

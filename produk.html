@@ -1,0 +1,2782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produk — Nosa Kids Station</title>
+  <meta name="description" content="Beli produk edukatif Nosa Kids Station: buku cerita anak, flash card, dan merchandise. Tersedia di Tokopedia, Shopee, dan TikTok Shop." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== SHOP LINKS BAR ===== */
+    .shop-bar {
+      background: white; border-bottom: 2px solid var(--border);
+      padding: 14px 0; position: sticky; top: var(--nav-height); z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .shop-bar-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .shop-bar span { font-weight: 700; font-size: 0.9rem; color: var(--text-muted); }
+    .shop-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 20px; border-radius: 100px;
+      font-weight: 700; font-size: 0.88rem;
+      transition: var(--transition); text-decoration: none;
+    }
+    .shop-btn-tokped { background: #42B549; color: white; }
+    .shop-btn-tokped:hover { background: #2d8a33; transform: translateY(-2px); }
+    .shop-btn-shopee { background: #EE4D2D; color: white; }
+    .shop-btn-shopee:hover { background: #c73e25; transform: translateY(-2px); }
+    .shop-btn-tiktok { background: #000; color: white; }
+    .shop-btn-tiktok:hover { background: #333; transform: translateY(-2px); }
+    .shop-btn-wa { background: #25D366; color: white; }
+    .shop-btn-wa:hover { background: #1da851; transform: translateY(-2px); }
+
+    .btn {
+      box-shadow: 0 8px 20px rgba(255,140,66,0.14);
+    }
+    .btn:hover {
+      box-shadow: 0 12px 24px rgba(255,140,66,0.2);
+    }
+    .btn-wa {
+      background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 48px;
+    }
+    .filter-btn {
+      padding: 10px 24px; border-radius: 100px;
+      font-family: var(--font-heading); font-weight: 700;
+      font-size: 0.92rem; cursor: pointer; border: 2px solid var(--border);
+      background: white; color: var(--text-muted);
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary); color: white;
+      border-color: var(--primary); transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-highlights {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      justify-content: center; margin: -12px 0 28px;
+    }
+    .highlight-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: rgba(255,140,66,0.1); color: var(--primary-dark);
+      font-size: 0.84rem; font-weight: 700; border: 1px solid rgba(255,140,66,0.16);
+    }
+    .product-showcase-banner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; flex-wrap: wrap;
+      padding: 20px 24px; margin: -8px 0 28px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,140,66,0.16), rgba(78,205,196,0.16));
+      border: 1px solid rgba(255,140,66,0.2);
+      box-shadow: 0 14px 36px rgba(255,140,66,0.1);
+      position: relative; overflow: hidden;
+    }
+    .product-showcase-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.7), transparent 45%);
+      pointer-events: none;
+    }
+    .product-showcase-banner strong { display: block; font-size: 1.02rem; margin-bottom: 4px; color: var(--text); position: relative; z-index: 1; }
+    .product-showcase-banner p { font-size: 0.9rem; color: var(--text-muted); margin: 0; position: relative; z-index: 1; }
+
+    .product-hero-card {
+      margin: 0 0 24px;
+      padding: 26px 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fff8f0 0%, #fffdf8 50%, #e9fffb 100%);
+      border: 1px solid rgba(255,140,66,0.18);
+      box-shadow: 0 16px 40px rgba(255,140,66,0.11);
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .product-hero-card .hero-copy strong {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px; border-radius: 999px; background: rgba(255,140,66,0.14); color: var(--primary-dark);
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;
+    }
+    .product-hero-card .hero-copy h3 {
+      font-size: clamp(1.2rem, 2.2vw, 1.5rem); margin-bottom: 8px; color: var(--text);
+    }
+    .product-hero-card .hero-copy p {
+      font-size: 0.95rem; color: var(--text-muted); max-width: 640px; margin: 0;
+    }
+    .product-hero-metric {
+      min-width: 200px; padding: 16px 18px; border-radius: 18px; background: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .product-hero-metric .number { font-size: 1.5rem; font-weight: 900; color: var(--primary); }
+    .product-hero-metric .label { font-size: 0.83rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* ===== PRODUCTS GRID ===== */
+    .products-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background: white; border-radius: var(--radius-md);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      display: flex; flex-direction: column;
+      cursor: pointer; position: relative; will-change: transform;
+      backface-visibility: hidden;
+      contain: layout paint;
+    }
+    .product-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 12px 28px rgba(255,140,66,0.16);
+    }
+    .product-card:active {
+      transform: translateY(-2px) scale(0.995);
+    }
+    .product-card.hidden { display: none; }
+
+    /* Product Image Area — replace emoji with <img> when you have photos */
+    .product-img {
+      height: 240px; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+      overflow: hidden;
+    }
+    /* ---- HOW TO ADD YOUR OWN PHOTOS ----
+       1. Put your image file in the same folder (e.g. buku-cerita-1.jpg)
+       2. Replace the emoji <span> with:
+          <img src="buku-cerita-1.jpg" alt="Nama Produk"
+               style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+       ---- */
+    .product-img img.product-photo {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0;
+    }
+    .product-img-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+      line-height: 1;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+    }
+    .product-cat-badge {
+      position: absolute; top: 14px; left: 14px;
+      color: white; font-size: 0.75rem; font-weight: 700;
+      padding: 5px 14px; border-radius: 100px;
+      z-index: 2;
+    }
+    .product-new-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: var(--accent); color: var(--text);
+      font-size: 0.7rem; font-weight: 800;
+      padding: 4px 10px; border-radius: 100px;
+      z-index: 2;
+    }
+    .product-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .product-body h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .product-body p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.65; flex: 1; }
+    .product-age {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg2); color: var(--primary);
+      font-size: 0.78rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .product-footer { border-top: 1px solid var(--border); padding: 18px 22px; }
+    .product-shop-links {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .shop-link {
+      flex: 1; min-width: 0;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      padding: 9px 8px; border-radius: 10px;
+      font-size: 0.78rem; font-weight: 700; text-align: center;
+      transition: all 0.2s ease; text-decoration: none;
+    }
+    .shop-link:hover { transform: translateY(-2px); filter: brightness(1.06); }
+    .shop-link-tokped { background: #e8f9e9; color: #42B549; border: 1.5px solid #42B549; }
+    .shop-link-shopee { background: #fdf0ee; color: #EE4D2D; border: 1.5px solid #EE4D2D; }
+    .shop-link-tiktok { background: #f0f0f0; color: #000; border: 1.5px solid #000; }
+    .shop-link-wa { background: #e8f9f0; color: #25D366; border: 1.5px solid #25D366; }
+
+    /* ===== COMING SOON SECTION ===== */
+    .coming-section { background: var(--bg2); }
+    .coming-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .coming-card {
+      background: white; border-radius: var(--radius-md);
+      padding: 28px 20px; text-align: center;
+      box-shadow: var(--shadow-sm); position: relative;
+      overflow: hidden;
+    }
+    .coming-card::before {
+      content: 'Segera Hadir'; position: absolute;
+      top: 14px; right: -20px;
+      background: var(--primary-light); color: white;
+      font-size: 0.7rem; font-weight: 700;
+      padding: 4px 30px; transform: rotate(35deg);
+    }
+    .coming-card .icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+    .coming-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .coming-card p { font-size: 0.82rem; color: var(--text-muted); }
+
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .coming-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .coming-grid { grid-template-columns: repeat(2, 1fr); }
+      .shop-bar-inner { gap: 8px; }
+      .shop-btn { font-size: 0.8rem; padding: 7px 14px; }
+    }
+    @media (max-width: 480px) {
+      .coming-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="favicon.svg" alt="Logo" />
+      Nosa <span>Kids</span> Station
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Beranda</a></li>
+      <li><a href="tentang.html">👋 Tentang</a></li>
+      <li><a href="produk.html" class="active">🛍️ Produk</a></li>
+      <li><a href="galeri.html">🖼️ Galeri</a></li>
+      <li><a href="kontak.html">📞 Kontak</a></li>
+    </ul>
+    <a href="https://wa.me/6282240142587" class="btn btn-wa nav-cta" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat WA
+    </a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Beranda</a>
+  <a href="tentang.html">👋 Tentang Kami</a>
+  <a href="produk.html">🛍️ Produk</a>
+  <a href="galeri.html">🖼️ Galeri</a>
+  <a href="kontak.html">📞 Kontak</a>
+  <a href="https://wa.me/6282240142587" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Chat WA</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <h1>🛍️ Produk Nosa Kids Station</h1>
+    <p>Bawa petualangan belajar Nosa ke rumah Anda! Produk edukatif berkualitas yang dirancang dengan penuh cinta.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span>›</span>
+      <span>Produk</span>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP BAR -->
+<div class="shop-bar">
+  <div class="shop-bar-inner">
+    <span>🛒 Belanja di:</span>
+    <a href="https://www.tokopedia.com/nosakids" class="shop-btn shop-btn-tokped" target="_blank">
+      <i class="fas fa-store"></i> Tokopedia
+    </a>
+    <a href="https://shopee.co.id/nosakids" class="shop-btn shop-btn-shopee" target="_blank">
+      <i class="fas fa-shopping-bag"></i> Shopee
+    </a>
+    <a href="https://www.tiktok.com/shop/nosakids" class="shop-btn shop-btn-tiktok" target="_blank">
+      <i class="fab fa-tiktok"></i> TikTok Shop
+    </a>
+    <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20ingin%20memesan%20produk%20Nosa%20Kids." class="shop-btn shop-btn-wa" target="_blank">
+      <i class="fab fa-whatsapp"></i> Order via WA
+    </a>
+  </div>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Koleksi Produk</div>
+      <h2>Temukan Produk Favorit Si Kecil</h2>
+      <p>Pilih produk yang tepat untuk mendukung tumbuh kembang anak Anda. Filter berdasarkan kategori di bawah ini.</p>
+    </div>
+
+    <!-- FILTER -->
+    <div class="filter-bar fade-up">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">🌟 Semua Produk</button>
+      <button class="filter-btn" onclick="filterProducts('buku', this)">📖 Buku Cerita</button>
+      <button class="filter-btn" onclick="filterProducts('flashcard', this)">🎴 Flash Card</button>
+      <button class="filter-btn" onclick="filterProducts('merch', this)">👕 Merchandise</button>
+    </div>
+    <div class="product-highlights fade-up">
+      <span class="highlight-pill">✅ Produk edukatif & aman untuk anak</span>
+      <span class="highlight-pill">🛒 Bisa langsung pesan lewat WA</span>
+      <span class="highlight-pill">🎨 Desain menarik untuk belajar seru</span>
+    </div>
+    <div class="product-showcase-banner fade-up">
+      <div>
+        <strong>✨ Koleksi siap jual</strong>
+        <p>Setiap produk dirancang agar terasa premium, mudah dipahami, dan siap membantu Anda mempromosikan Nosa Kids dengan lebih percaya diri.</p>
+      </div>
+      <a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!%20Saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20produk%20Anda." class="btn btn-wa btn-sm" target="_blank">📩 Tanya Sekarang</a>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <!-- ================================================================
+         CARA MENAMBAH/UPDATE PRODUK:
+         1. Duplikat satu blok <div class="product-card"> di bawah
+         2. Ubah data-cat sesuai kategori: "buku", "flashcard", atau "merch"
+         3. Ganti emoji placeholder dengan <img> jika punya foto produk:
+            Hapus <span class="product-img-placeholder">📖</span>
+            Tambahkan: <img src="nama-foto.jpg" class="product-photo" alt="Nama Produk">
+         4. Update teks nama, deskripsi, dan link toko
+         ================================================================ -->
+    <div class="products-grid" id="productsGrid">
+
+      <!-- BUKU 1 -->
+      <div class="product-card" data-cat="buku" data-id="buku-001" data-nama="Petualangan Nosa di Hutan" data-desk="Ikuti petualangan Nosa menjelajahi hutan tropis yang penuh keajaiban. Anak-anak akan belajar tentang pohon, hewan hutan, dan pentingnya menjaga alam." data-usia="3–8 tahun" data-emoji="📖" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Buku Petualangan Nosa di Hutan." data-bg="linear-gradient(135deg,#FFF8F0,#FFE4CC)" data-catclr="#FF8C42" onclick="openProdukModal('buku-001')">
+        <div class="product-img" style="background:linear-gradient(135deg,#FFF8F0,#FFE4CC)">
+          <span class="product-cat-badge" style="background:#FF8C42">📖 Buku Cerita</span>
+          <span class="product-new-badge">🆕 Baru</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji di bawah, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">📖</span>
+          <!-- <img src="assets/images/buku-hutan.jpg" class="product-photo" alt="Buku Petualangan Nosa di Hutan"> -->
+        </div>
+        <div class="product-body">
+          <h3>Petualangan Nosa di Hutan</h3>
+          <span class="product-age">👦 Usia 3–8 tahun</span>
+          <p>Ikuti petualangan Nosa menjelajahi hutan tropis yang penuh keajaiban. Anak-anak akan belajar tentang pohon, hewan hutan, dan pentingnya menjaga alam.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Buku%20Petualangan%20Nosa%20di%20Hutan." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUKU 2 -->
+      <div class="product-card" data-cat="buku" data-id="buku-002" data-nama="Nosa Menyelam di Laut" data-desk="Bersama Nosa, anak-anak akan menyelami kehidupan bawah laut yang menakjubkan. Mengenal ikan, terumbu karang, dan keajaiban samudra biru." data-usia="3–8 tahun" data-emoji="🌊" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Buku Nosa Menyelam di Laut." data-bg="linear-gradient(135deg,#F0FFF8,#C8F7E5)" data-catclr="#FF8C42" onclick="openProdukModal('buku-002')">
+        <div class="product-img" style="background:linear-gradient(135deg,#F0FFF8,#C8F7E5)">
+          <span class="product-cat-badge" style="background:#FF8C42">📖 Buku Cerita</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🌊</span>
+          <!-- <img src="assets/images/buku-laut.jpg" class="product-photo" alt="Buku Nosa Menyelam di Laut"> -->
+        </div>
+        <div class="product-body">
+          <h3>Nosa Menyelam di Laut</h3>
+          <span class="product-age">👦 Usia 3–8 tahun</span>
+          <p>Bersama Nosa, anak-anak akan menyelami kehidupan bawah laut yang menakjubkan. Mengenal ikan, terumbu karang, dan keajaiban samudra biru.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Buku%20Nosa%20Menyelam%20di%20Laut." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUKU 3 -->
+      <div class="product-card" data-cat="buku" data-id="buku-003" data-nama="Misteri Gunung Berapi" data-desk="Nosa mengajak anak-anak belajar tentang gunung berapi, gempa bumi, dan fenomena alam yang menakjubkan dengan bahasa yang mudah dipahami." data-usia="5–8 tahun" data-emoji="🌋" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Buku Misteri Gunung Berapi." data-bg="linear-gradient(135deg,#FFF5E6,#FFE0B0)" data-catclr="#FF8C42" onclick="openProdukModal('buku-003')">
+        <div class="product-img" style="background:linear-gradient(135deg,#FFF5E6,#FFE0B0)">
+          <span class="product-cat-badge" style="background:#FF8C42">📖 Buku Cerita</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🌋</span>
+          <!-- <img src="assets/images/buku-gunung.jpg" class="product-photo" alt="Buku Misteri Gunung Berapi"> -->
+        </div>
+        <div class="product-body">
+          <h3>Misteri Gunung Berapi</h3>
+          <span class="product-age">👦 Usia 5–8 tahun</span>
+          <p>Nosa mengajak anak-anak belajar tentang gunung berapi, gempa bumi, dan fenomena alam yang menakjubkan dengan bahasa yang mudah dipahami.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Buku%20Misteri%20Gunung%20Berapi." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLASH CARD 1 -->
+      <div class="product-card" data-cat="flashcard" data-id="flash-001" data-nama="Flash Card Dunia Hewan" data-desk="40 kartu bergambar hewan-hewan dari seluruh dunia dengan nama, suara, dan fakta menarik. Desain full color dengan karakter Nosa yang menggemaskan." data-usia="2–6 tahun" data-emoji="🦁" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Flash Card Dunia Hewan." data-bg="linear-gradient(135deg,#E8F8FF,#B8EEFF)" data-catclr="#4ECDC4" onclick="openProdukModal('flash-001')">
+        <div class="product-img" style="background:linear-gradient(135deg,#E8F8FF,#B8EEFF)">
+          <span class="product-cat-badge" style="background:#4ECDC4">🎴 Flash Card</span>
+          <span class="product-new-badge">⭐ Best Seller</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🦁</span>
+          <!-- <img src="assets/images/flashcard-hewan.jpg" class="product-photo" alt="Flash Card Dunia Hewan"> -->
+        </div>
+        <div class="product-body">
+          <h3>Flash Card Dunia Hewan</h3>
+          <span class="product-age">👶 Usia 2–6 tahun</span>
+          <p>40 kartu bergambar hewan-hewan dari seluruh dunia dengan nama, suara, dan fakta menarik. Desain full color dengan karakter Nosa yang menggemaskan.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Flash%20Card%20Dunia%20Hewan." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLASH CARD 2 -->
+      <div class="product-card" data-cat="flashcard" data-id="flash-002" data-nama="Flash Card Dunia Tumbuhan" data-desk="36 kartu bergambar tumbuhan, bunga, dan pohon Indonesia. Anak-anak belajar mengenal alam hijau di sekitar mereka dengan cara yang menyenangkan." data-usia="2–6 tahun" data-emoji="🌿" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Flash Card Dunia Tumbuhan." data-bg="linear-gradient(135deg,#F5FFE8,#D4F7B0)" data-catclr="#4ECDC4" onclick="openProdukModal('flash-002')">
+        <div class="product-img" style="background:linear-gradient(135deg,#F5FFE8,#D4F7B0)">
+          <span class="product-cat-badge" style="background:#4ECDC4">🎴 Flash Card</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🌿</span>
+          <!-- <img src="assets/images/flashcard-tumbuhan.jpg" class="product-photo" alt="Flash Card Dunia Tumbuhan"> -->
+        </div>
+        <div class="product-body">
+          <h3>Flash Card Dunia Tumbuhan</h3>
+          <span class="product-age">👶 Usia 2–6 tahun</span>
+          <p>36 kartu bergambar tumbuhan, bunga, dan pohon Indonesia. Anak-anak belajar mengenal alam hijau di sekitar mereka dengan cara yang menyenangkan.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Flash%20Card%20Dunia%20Tumbuhan." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLASH CARD 3 -->
+      <div class="product-card" data-cat="flashcard" data-id="flash-003" data-nama="Flash Card Angka & Warna" data-desk="Perkenalkan angka 1-20 dan warna-warna dasar kepada si kecil dengan cara yang seru. Ilustrasi imut dan warna-warni yang disukai bayi dan balita." data-usia="1.5–4 tahun" data-emoji="🔢" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Flash Card Angka & Warna." data-bg="linear-gradient(135deg,#FFF8E6,#FFE9A0)" data-catclr="#4ECDC4" onclick="openProdukModal('flash-003')">
+        <div class="product-img" style="background:linear-gradient(135deg,#FFF8E6,#FFE9A0)">
+          <span class="product-cat-badge" style="background:#4ECDC4">🎴 Flash Card</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🔢</span>
+          <!-- <img src="assets/images/flashcard-angka.jpg" class="product-photo" alt="Flash Card Angka dan Warna"> -->
+        </div>
+        <div class="product-body">
+          <h3>Flash Card Angka &amp; Warna</h3>
+          <span class="product-age">👶 Usia 1.5–4 tahun</span>
+          <p>Perkenalkan angka 1-20 dan warna-warna dasar kepada si kecil dengan cara yang seru. Ilustrasi imut dan warna-warni yang disukai bayi dan balita.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Flash%20Card%20Angka%20%26%20Warna." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERCH 1 -->
+      <div class="product-card" data-cat="merch" data-id="merch-001" data-nama="Kaos Anak Nosa Lion" data-desk="Kaos anak berkualitas premium dengan karakter Nosa Lion favorit. Bahan cotton combed 30s yang lembut dan nyaman untuk aktivitas sehari-hari si kecil." data-usia="Size S, M, L, XL" data-emoji="👕" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Kaos Anak Nosa Lion." data-bg="linear-gradient(135deg,#F8EEFF,#E0C8FF)" data-catclr="#6C63FF" onclick="openProdukModal('merch-001')">
+        <div class="product-img" style="background:linear-gradient(135deg,#F8EEFF,#E0C8FF)">
+          <span class="product-cat-badge" style="background:#6C63FF">👕 Merchandise</span>
+          <span class="product-new-badge">🔥 Hits!</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">👕</span>
+          <!-- <img src="assets/images/kaos-nosa.jpg" class="product-photo" alt="Kaos Anak Nosa Lion"> -->
+        </div>
+        <div class="product-body">
+          <h3>Kaos Anak Nosa Lion</h3>
+          <span class="product-age">👦 Size S, M, L, XL</span>
+          <p>Kaos anak berkualitas premium dengan karakter Nosa Lion favorit. Bahan cotton combed 30s yang lembut dan nyaman untuk aktivitas sehari-hari si kecil.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Kaos%20Anak%20Nosa%20Lion." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERCH 2 -->
+      <div class="product-card" data-cat="merch" data-id="merch-002" data-nama="Topi Baseball Nosa Kids" data-desk="Topi baseball lucu dengan logo Nosa Kids yang keren. Cocok untuk outdoor, sekolah, dan aktivitas seru lainnya. Bahan breathable yang nyaman dipakai." data-usia="Adjustable, All Size" data-emoji="🧢" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Topi Baseball Nosa Kids." data-bg="linear-gradient(135deg,#EEFFF8,#C0F5DC)" data-catclr="#6C63FF" onclick="openProdukModal('merch-002')">
+        <div class="product-img" style="background:linear-gradient(135deg,#EEFFF8,#C0F5DC)">
+          <span class="product-cat-badge" style="background:#6C63FF">🧢 Merchandise</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🧢</span>
+          <!-- <img src="assets/images/topi-nosa.jpg" class="product-photo" alt="Topi Baseball Nosa Kids"> -->
+        </div>
+        <div class="product-body">
+          <h3>Topi Baseball Nosa Kids</h3>
+          <span class="product-age">👦 Adjustable, All Size</span>
+          <p>Topi baseball lucu dengan logo Nosa Kids yang keren. Cocok untuk outdoor, sekolah, dan aktivitas seru lainnya. Bahan breathable yang nyaman dipakai.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Topi%20Baseball%20Nosa%20Kids." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MERCH 3 -->
+      <div class="product-card" data-cat="merch" data-id="merch-003" data-nama="Tas Ransel Mini Nosa" data-desk="Tas ransel imut berkarakter Nosa yang sempurna untuk sekolah atau jalan-jalan. Ukuran pas untuk si kecil, bahan water-resistant, ringan, dan tahan lama." data-usia="Anak 3–7 tahun" data-emoji="🎒" data-stok="ready" data-foto="" data-tokped="https://www.tokopedia.com/nosakids" data-shopee="https://shopee.co.id/nosakids" data-tiktok="https://www.tiktok.com/shop/nosakids" data-wa="Halo! Saya mau tanya tentang Tas Ransel Mini Nosa." data-bg="linear-gradient(135deg,#FFFCE6,#FFF5A0)" data-catclr="#6C63FF" onclick="openProdukModal('merch-003')">
+        <div class="product-img" style="background:linear-gradient(135deg,#FFFCE6,#FFF5A0)">
+          <span class="product-cat-badge" style="background:#6C63FF">🎒 Merchandise</span>
+          <!-- ▼▼▼ GANTI FOTO: hapus baris emoji, uncomment baris img ▼▼▼ -->
+          <span class="product-img-placeholder">🎒</span>
+          <!-- <img src="assets/images/tas-nosa.jpg" class="product-photo" alt="Tas Ransel Mini Nosa"> -->
+        </div>
+        <div class="product-body">
+          <h3>Tas Ransel Mini Nosa</h3>
+          <span class="product-age">👶 Anak 3–7 tahun</span>
+          <p>Tas ransel imut berkarakter Nosa yang sempurna untuk sekolah atau jalan-jalan. Ukuran pas untuk si kecil, bahan water-resistant, ringan, dan tahan lama.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-shop-links">
+            <a href="https://www.tokopedia.com/nosakids" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>
+            <a href="https://shopee.co.id/nosakids" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/shop/nosakids" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20pesan%20Tas%20Ransel%20Mini%20Nosa." class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /products-grid -->
+
+    <!-- EMPTY STATE -->
+    <div id="emptyState" style="display:none;text-align:center;padding:60px 0">
+      <div style="font-size:4rem;margin-bottom:16px">🔍</div>
+      <h3>Produk tidak ditemukan</h3>
+      <p style="color:var(--text-muted)">Coba pilih kategori lain atau lihat semua produk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="section coming-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="badge">Segera Hadir</div>
+      <h2>🚀 Produk Mendatang</h2>
+      <p>Kami terus berinovasi! Nantikan produk-produk baru yang akan segera hadir untuk si kecil.</p>
+    </div>
+    <div class="coming-grid">
+      <div class="coming-card fade-up">
+        <span class="icon">🧩</span>
+        <h4>Puzzle Edukatif</h4>
+        <p>Puzzle bergambar peta Indonesia, hewan, dan dunia.</p>
+      </div>
+      <div class="coming-card fade-up">
+        <span class="icon">📝</span>
+        <h4>Activity Book</h4>
+        <p>Buku aktivitas mewarnai, menghubungkan titik, dan maze.</p>
+      </div>
+      <div class="coming-card fade-up">
+        <span class="icon">🎲</span>
+        <h4>Board Game Edukatif</h4>
+        <p>Permainan keluarga yang seru sekaligus mengajarkan ilmu pengetahuan.</p>
+      </div>
+      <div class="coming-card fade-up">
+        <span class="icon">🧸</span>
+        <h4>Boneka Nosa</h4>
+        <p>Bawa pulang karakter Nosa favorit dalam wujud boneka yang menggemaskan.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="fade-up">
+      <p style="margin-bottom:16px;color:var(--text-muted)">Ingin tahu lebih dulu tentang produk baru?</p>
+      <a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!%20Saya%20mau%20tahu%20info%20produk%20terbaru." class="btn btn-wa btn-lg" target="_blank">
+        <i class="fab fa-whatsapp"></i> Notifikasi via WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">Nosa <span>Kids</span> Station</span>
+        <p>Produk edukatif berkualitas yang memperkaya pengalaman belajar si kecil di rumah.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@NosaKidsStation" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com/nosakidsstation" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/nosakidsstation" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://tiktok.com/@nosa.kids.station" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Beranda</a></li>
+          <li><a href="tentang.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Tentang Kami</a></li>
+          <li><a href="produk.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Produk</a></li>
+          <li><a href="galeri.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Galeri</a></li>
+          <li><a href="kontak.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="https://tokopedia.com" target="_blank"><i class="fas fa-store" style="font-size:0.7rem"></i> Tokopedia</a></li>
+          <li><a href="https://shopee.co.id" target="_blank"><i class="fas fa-shopping-bag" style="font-size:0.7rem"></i> Shopee</a></li>
+          <li><a href="https://tiktok.com/shop" target="_blank"><i class="fab fa-tiktok" style="font-size:0.7rem"></i> TikTok Shop</a></li>
+          <li><a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp" style="font-size:0.7rem"></i> Order via WA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Newsletter</h4>
+        <p style="font-size:0.88rem;opacity:0.7;margin-bottom:14px">Update produk & promo eksklusif Nosa Kids!</p>
+        <input type="email" placeholder="Email Anda..." />
+        <button class="btn btn-primary btn-block" onclick="alert('Terima kasih sudah subscribe! 🎉')">📬 Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 Nosa Kids Station. All rights reserved. Made with ❤️ for children of Indonesia.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20tanya%20tentang%20produk%20Nosa%20Kids." class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-float-tooltip">Chat via WhatsApp</span>
+</a>
+
+<script src="assets/js/main.js"></script>
+
+<!-- ============================================================
+     SISTEM DINAMIS + PANEL ADMIN TERSEMBUNYI
+     Tidak terlihat oleh pengunjung biasa
+     Akses: klik logo Nosa 5x berturut-turut
+     ============================================================ -->
+<style>
+/* ===== MODAL DETAIL PRODUK ===== */
+.produk-modal-bg {
+  position: fixed; inset: 0; z-index: 9990;
+  background: rgba(0,0,0,0); display: none;
+  align-items: center; justify-content: center; padding: 16px;
+  transition: background 0.3s ease;
+}
+.produk-modal-bg.open { 
+  display: flex; 
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+}
+.produk-modal {
+  background: white; border-radius: 24px;
+  width: 100%; max-width: 860px;
+  max-height: 92vh; overflow-y: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+  display: grid; grid-template-columns: 1fr 1fr;
+  animation: modalSlideUp 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+@keyframes modalSlideUp {
+  from { opacity:0; transform: translateY(40px) scale(0.95); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+.pm-close {
+  position: absolute; top: 14px; right: 14px; z-index: 10;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(0,0,0,0.5); color: white; border: none;
+  cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; backdrop-filter: blur(4px);
+}
+.pm-close:hover { background: #EF476F; transform: scale(1.1); }
+.pm-foto-side {
+  position: relative; overflow: hidden;
+  border-radius: 24px 0 0 24px; min-height: 420px;
+  background: #f0f4f8;
+  display: flex; flex-direction: column;
+  user-select: none;
+}
+
+/* ===== CAROUSEL TRACK ===== */
+.pm-carousel {
+  position: relative; flex: 1;
+  overflow: hidden; min-height: 340px;
+}
+.pm-carousel-track {
+  display: flex; height: 100%;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.pm-carousel-slide {
+  min-width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: #f0f4f8; position: relative;
+  overflow: hidden;
+}
+.pm-carousel-slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.pm-carousel-slide .slide-emoji {
+  font-size: 8rem; text-align: center; line-height: 1;
+}
+
+/* ===== PANAH NAVIGASI ===== */
+.pm-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 10; width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: #2D3436;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: all 0.2s; backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none;
+}
+.pm-foto-side:hover .pm-arrow { opacity: 1; pointer-events: all; }
+.pm-arrow:hover { background: white; transform: translateY(-50%) scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+.pm-arrow.prev { left: 10px; }
+.pm-arrow.next { right: 10px; }
+.pm-arrow.disabled { opacity: 0 !important; pointer-events: none !important; }
+
+/* ===== THUMBNAIL STRIP ===== */
+.pm-thumbs {
+  display: flex; gap: 6px; padding: 10px 12px;
+  background: rgba(0,0,0,0.04); overflow-x: auto;
+  scrollbar-width: none; flex-shrink: 0;
+}
+.pm-thumbs::-webkit-scrollbar { display: none; }
+.pm-thumb {
+  width: 54px; height: 54px; border-radius: 10px;
+  flex-shrink: 0; cursor: pointer; overflow: hidden;
+  border: 2.5px solid transparent;
+  transition: all 0.22s; background: #e0e6ed;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.pm-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pm-thumb.active { border-color: var(--primary); transform: scale(1.08); box-shadow: 0 3px 12px rgba(255,140,66,0.4); }
+.pm-thumb:hover:not(.active) { border-color: #ccc; transform: scale(1.05); }
+
+/* ===== DOTS INDICATOR ===== */
+.pm-dots {
+  position: absolute; bottom: 72px; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 6px;
+  pointer-events: none;
+}
+.pm-dot {
+  width: 7px; height: 7px; border-radius: 100px;
+  background: rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+}
+.pm-dot.active {
+  background: white; width: 22px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ===== COUNTER ===== */
+.pm-counter {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(0,0,0,0.45); color: white;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 100px;
+  backdrop-filter: blur(4px); z-index: 5;
+}
+
+/* ===== BADGE UPLOAD (di admin form) ===== */
+.foto-upload-multi {
+  border: 2px dashed #E0E6ED; border-radius: 12px;
+  padding: 18px; background: #F8FAFC;
+  transition: all 0.25s;
+}
+.foto-upload-multi:hover { border-color: var(--primary); background: #FFF5EE; }
+.foto-slots { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin-top: 12px; }
+.foto-slot {
+  aspect-ratio: 1; border-radius: 10px; overflow: hidden;
+  border: 2px dashed #E0E6ED; background: #F0F4F8;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; position: relative;
+  font-size: 1.4rem; color: #b2bec3;
+}
+.foto-slot:hover { border-color: var(--primary); background: #FFF5EE; color: var(--primary); }
+.foto-slot img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+.foto-slot .slot-del {
+  position: absolute; top: 3px; right: 3px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(239,71,111,0.9); color: white;
+  display: none; align-items: center; justify-content: center;
+  font-size: 0.65rem; cursor: pointer; border: none;
+  z-index: 2;
+}
+.foto-slot:hover .slot-del { display: flex; }
+.foto-slot input[type=file] { position:absolute; inset:0; opacity:0; cursor:pointer; }
+
+.pm-foto-main {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.pm-foto-emoji { font-size: 7rem; text-align: center; }
+.pm-stok-badge {
+  position: absolute; top: 16px; left: 16px;
+  font-size: 0.8rem; font-weight: 800;
+  padding: 5px 14px; border-radius: 100px;
+}
+.pm-info-side {
+  padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 14px;
+  overflow-y: auto;
+}
+.pm-cat-badge {
+  display: inline-block; font-size: 0.78rem; font-weight: 700;
+  padding: 4px 14px; border-radius: 100px; color: white;
+  align-self: flex-start;
+}
+.pm-nama {
+  font-family: var(--font-heading); font-weight: 900;
+  font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.2;
+  color: var(--text);
+}
+.pm-usia {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg2); color: var(--primary);
+  font-size: 0.82rem; font-weight: 700;
+  padding: 5px 14px; border-radius: 100px;
+  align-self: flex-start;
+}
+.pm-desk {
+  font-size: 0.95rem; color: var(--text-muted);
+  line-height: 1.75;
+}
+.pm-divider {
+  border: none; border-top: 1px solid var(--border); margin: 4px 0;
+}
+.pm-beli-title {
+  font-size: 0.82rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--text-muted); margin-bottom: 2px;
+}
+.pm-beli-btns {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.pm-beli-btn {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 18px; border-radius: 14px;
+  font-size: 0.9rem; font-weight: 700; text-decoration: none;
+  transition: all 0.2s; border: 2px solid transparent;
+}
+.pm-beli-btn:hover { transform: translateX(4px); }
+.pm-beli-tokped { background: #F0FBF0; color: #2D8A33; border-color: #42B549; }
+.pm-beli-tokped:hover { background: #42B549; color: white; }
+.pm-beli-shopee { background: #FFF3F0; color: #C73E25; border-color: #EE4D2D; }
+.pm-beli-shopee:hover { background: #EE4D2D; color: white; }
+.pm-beli-tiktok { background: #F5F5F5; color: #000; border-color: #333; }
+.pm-beli-tiktok:hover { background: #000; color: white; }
+.pm-beli-wa {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white; border-color: transparent;
+  box-shadow: 0 4px 14px rgba(37,211,102,0.35);
+}
+.pm-beli-wa:hover { transform: translateX(4px) scale(1.02); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
+.pm-beli-btn i { width: 22px; text-align: center; font-size: 1.1rem; }
+.pm-beli-btn .arrow { margin-left: auto; opacity: 0.5; font-size: 0.8rem; }
+
+/* Kartu produk bisa diklik */
+.product-card { cursor: pointer; }
+.product-card:active { transform: scale(0.98) !important; }
+
+@media (max-width: 680px) {
+  .produk-modal { grid-template-columns: 1fr; max-width: 420px; }
+  .pm-foto-side { border-radius: 24px 24px 0 0; min-height: 260px; }
+  .pm-info-side { padding: 22px 18px; }
+}
+
+/* ===== PASTIKAN KARTU PRODUK SELALU VISIBLE ===== */
+.product-card {
+  opacity: 1 !important;
+  transform: none;
+}
+.product-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ===== STOK BADGE di kartu produk ===== */
+.stok-badge {
+  position: absolute; bottom: 12px; right: 12px;
+  font-size: 0.72rem; font-weight: 800;
+  padding: 4px 10px; border-radius: 100px;
+  letter-spacing: 0.5px; z-index: 3;
+  backdrop-filter: blur(4px);
+}
+.stok-ready  { background: rgba(6,214,160,0.92); color: #fff; }
+.stok-po     { background: rgba(255,209,102,0.95); color: #5a3e00; }
+.stok-kosong { background: rgba(239,71,111,0.92); color: #fff; }
+.stok-kosong-overlay {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: rgba(255,255,255,0.55); z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+}
+.stok-kosong-overlay span {
+  background: rgba(239,71,111,0.9); color: white;
+  font-weight: 800; font-size: 0.85rem; padding: 6px 18px;
+  border-radius: 100px; transform: rotate(-8deg);
+}
+
+/* ===== PANEL ADMIN ===== */
+#adminPanel {
+  display: none;
+  position: fixed; inset: 0; z-index: 99999;
+  background: rgba(0,0,0,0.0);
+  animation: adminFadeIn 0.3s ease forwards;
+}
+@keyframes adminFadeIn { to { background: rgba(0,0,0,0.6); } }
+
+/* LOGIN BOX */
+#adminLogin {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.login-box {
+  background: white; border-radius: 24px;
+  padding: 44px 40px; width: 360px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+  text-align: center; animation: boxPop 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes boxPop { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+.login-box .logo-big { font-size: 3.5rem; margin-bottom: 6px; display: block; }
+.login-box h2 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; margin-bottom: 4px; }
+.login-box p  { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 28px; }
+.login-input {
+  width: 100%; padding: 12px 18px;
+  border: 2px solid #E0E6ED; border-radius: 12px;
+  font-size: 0.95rem; font-family: var(--font-body);
+  outline: none; text-align: center; letter-spacing: 3px;
+  transition: border-color 0.2s;
+  margin-bottom: 12px;
+}
+.login-input:focus { border-color: var(--primary); }
+.login-input.shake { animation: shake 0.4s ease; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+.login-btn {
+  width: 100%; padding: 13px; border: none; border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  color: white; font-family: var(--font-heading); font-weight: 800;
+  font-size: 1rem; cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(255,140,66,0.4);
+}
+.login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,140,66,0.5); }
+.login-error {
+  color: #EF476F; font-size: 0.82rem; font-weight: 700;
+  margin-top: 8px; display: none;
+}
+.login-close-btn {
+  margin-top: 16px; background: none; border: none;
+  color: var(--text-muted); font-size: 0.83rem; cursor: pointer;
+}
+.login-close-btn:hover { color: var(--danger); }
+
+/* ADMIN DASHBOARD */
+#adminDash {
+  display: none;
+  position: absolute; inset: 20px;
+  background: #F4F6F9; border-radius: 20px;
+  overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  flex-direction: column;
+}
+.adm-header {
+  background: white; padding: 0 24px;
+  height: 60px; display: flex; align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E0E6ED; flex-shrink: 0;
+}
+.adm-header-left { display: flex; align-items: center; gap: 10px; }
+.adm-header-left span { font-family: var(--font-heading); font-weight: 900; font-size: 1rem; }
+.adm-header-left em { color: var(--primary); font-style: normal; }
+.adm-tab-bar {
+  background: white; padding: 0 24px;
+  display: flex; gap: 4px; border-bottom: 1px solid #E0E6ED; flex-shrink: 0;
+}
+.adm-tab {
+  padding: 12px 18px; font-size: 0.85rem; font-weight: 700;
+  cursor: pointer; border: none; background: none;
+  color: var(--text-muted); border-bottom: 3px solid transparent;
+  transition: all 0.2s; margin-bottom: -1px;
+}
+.adm-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+.adm-tab:hover  { color: var(--primary); background: #FFF5EE; border-radius: 8px 8px 0 0; }
+.adm-body {
+  flex: 1; overflow-y: auto; padding: 20px 24px;
+}
+
+/* PRODUK TABLE */
+.adm-toolbar {
+  display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;
+  align-items: center;
+}
+.adm-search {
+  display: flex; align-items: center; gap: 8px;
+  background: white; border: 1.5px solid #E0E6ED;
+  border-radius: 100px; padding: 8px 16px; flex: 1; max-width: 280px;
+}
+.adm-search input { border: none; outline: none; font-size: 0.86rem; width: 100%; background: transparent; }
+.adm-select {
+  padding: 8px 14px; border: 1.5px solid #E0E6ED;
+  border-radius: 100px; font-size: 0.84rem; outline: none;
+  background: white; cursor: pointer;
+}
+.adm-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px; border-radius: 100px;
+  font-size: 0.84rem; font-weight: 700; cursor: pointer; border: none;
+  transition: all 0.2s;
+}
+.adm-btn-primary { background: var(--primary); color: white; }
+.adm-btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.adm-btn-ghost { background: white; color: var(--text); border: 1.5px solid #E0E6ED; }
+.adm-btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+.adm-btn-danger { background: #EF476F; color: white; }
+.adm-btn-danger:hover { filter: brightness(1.1); }
+.adm-btn-sm { padding: 6px 12px; font-size: 0.78rem; border-radius: 8px; }
+
+.adm-table-wrap { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.adm-table { width: 100%; border-collapse: collapse; }
+.adm-table thead { background: #F8FAFC; }
+.adm-table th {
+  padding: 11px 14px; text-align: left;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--text-muted);
+  border-bottom: 1px solid #E0E6ED;
+}
+.adm-table td {
+  padding: 13px 14px; font-size: 0.85rem;
+  border-bottom: 1px solid #F0F4F8; vertical-align: middle;
+}
+.adm-table tr:last-child td { border-bottom: none; }
+.adm-table tr:hover td { background: #FAFCFF; }
+.adm-thumb {
+  width: 48px; height: 48px; border-radius: 10px;
+  object-fit: cover; background: #F0F4F8;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; border: 1px solid #E0E6ED; vertical-align: middle;
+  overflow: hidden;
+}
+.adm-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.prod-row-info { display: inline-flex; align-items: center; gap: 10px; }
+.prod-row-name { font-weight: 700; font-size: 0.88rem; display: block; }
+.prod-row-id   { font-size: 0.74rem; color: var(--text-muted); }
+.kat-badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 700; }
+.kat-buku      { background:#FFF0E6; color:#E6722A; }
+.kat-flashcard { background:#E6FFFE; color:#38B2AA; }
+.kat-merch     { background:#F0EEFF; color:#6C63FF; }
+.stok-pill { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 800; }
+.sp-ready  { background:#E8F9F0; color:#048A64; }
+.sp-po     { background:#FFF8E6; color:#a07000; }
+.sp-kosong { background:#FFE8EE; color:#C0284D; }
+.adm-actions { display: flex; gap: 6px; }
+.adm-icon-btn {
+  width: 30px; height: 30px; border-radius: 7px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; cursor: pointer; border: 1px solid #E0E6ED;
+  background: #F8FAFC; color: var(--text-muted); transition: all 0.2s;
+}
+.adm-icon-btn:hover.edit   { background:#E8F4FF; color:#185FA5; border-color:#185FA5; }
+.adm-icon-btn:hover.del    { background:#FFE8EE; color:#EF476F; border-color:#EF476F; }
+
+/* MODAL FORM */
+.adm-modal-bg {
+  position: fixed; inset: 0; z-index: 100001;
+  background: rgba(0,0,0,0.5);
+  display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.adm-modal-bg.open { display: flex; }
+.adm-modal {
+  background: white; border-radius: 20px;
+  width: 100%; max-width: 600px; max-height: 88vh;
+  overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.adm-modal-head {
+  padding: 20px 26px; border-bottom: 1px solid #E0E6ED;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; background: white; z-index: 2;
+}
+.adm-modal-head h3 { font-size: 1.05rem; font-weight: 900; }
+.adm-modal-close {
+  width: 32px; height: 32px; border-radius: 50%; border: none;
+  background: #F0F4F8; cursor: pointer; font-size: 0.9rem;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); transition: all 0.2s;
+}
+.adm-modal-close:hover { background: #FFE8EE; color: #EF476F; }
+.adm-modal-body { padding: 22px 26px; }
+.adm-modal-foot {
+  padding: 16px 26px; border-top: 1px solid #E0E6ED;
+  display: flex; justify-content: flex-end; gap: 10px;
+  position: sticky; bottom: 0; background: white;
+}
+.fg { margin-bottom: 14px; }
+.fg label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: #2D3436; }
+.fg label .req { color: #EF476F; }
+.fc {
+  width: 100%; padding: 9px 13px; border: 1.5px solid #E0E6ED;
+  border-radius: 9px; font-size: 0.88rem; font-family: var(--font-body);
+  outline: none; transition: border-color 0.2s; background: white;
+}
+.fc:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255,140,66,0.1); }
+textarea.fc { resize: vertical; min-height: 80px; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fg-hint { font-size: 0.74rem; color: var(--text-muted); margin-top: 4px; }
+
+/* FOTO UPLOAD AREA */
+.foto-upload-area {
+  border: 2px dashed #E0E6ED; border-radius: 12px;
+  padding: 24px; text-align: center; cursor: pointer;
+  transition: all 0.25s; background: #F8FAFC; position: relative;
+}
+.foto-upload-area:hover { border-color: var(--primary); background: #FFF5EE; }
+.foto-upload-area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.foto-upload-area .fi { font-size: 2rem; display: block; margin-bottom: 8px; color: var(--primary); }
+.foto-upload-area h4 { font-size: 0.88rem; margin-bottom: 4px; }
+.foto-upload-area p  { font-size: 0.78rem; color: var(--text-muted); }
+.foto-preview { display: none; position: relative; border-radius: 12px; overflow: hidden; border: 2px solid var(--primary); }
+.foto-preview img { width: 100%; max-height: 200px; object-fit: cover; display: block; }
+.foto-preview-actions {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  padding: 12px; display: flex; gap: 8px; justify-content: center;
+}
+.upload-prog { display: none; margin-top: 10px; background: #F0F4F8; border-radius: 8px; padding: 10px 14px; }
+.prog-bar-wrap { height: 5px; background: #E0E6ED; border-radius: 3px; overflow: hidden; margin-top: 6px; }
+.prog-bar { height: 100%; background: var(--primary); border-radius: 3px; width: 0%; transition: width 0.3s; }
+
+/* TOAST */
+#admToast {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  z-index: 999999; display: flex; flex-direction: column; gap: 8px; align-items: center;
+}
+.adm-toast-item {
+  background: #2D3436; color: white; border-radius: 10px;
+  padding: 10px 22px; font-size: 0.86rem; font-weight: 700;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  animation: toastIn 0.3s ease;
+}
+@keyframes toastIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+/* KONFIRM DELETE */
+#admConfirm {
+  position: fixed; inset: 0; z-index: 100002;
+  background: rgba(0,0,0,0.5); display: none;
+  align-items: center; justify-content: center; padding: 20px;
+}
+#admConfirm.open { display: flex; }
+.adm-confirm-box {
+  background: white; border-radius: 18px;
+  padding: 32px; max-width: 380px; width: 100%;
+  text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.adm-confirm-box .ci { font-size: 2.8rem; margin-bottom: 12px; display: block; }
+.adm-confirm-box h3 { font-size: 1.1rem; margin-bottom: 8px; font-weight: 900; }
+.adm-confirm-box p  { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 22px; }
+.adm-confirm-btns { display: flex; gap: 10px; justify-content: center; }
+
+/* PENGATURAN PAGE */
+.cfg-card {
+  background: white; border-radius: 14px;
+  padding: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 16px;
+}
+.cfg-card h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; }
+.cfg-card p  { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
+
+/* EMPTY STATE */
+.adm-empty { text-align: center; padding: 48px 20px; }
+.adm-empty .ei { font-size: 3rem; margin-bottom: 12px; display: block; }
+.adm-empty h3 { font-size: 1rem; margin-bottom: 6px; }
+.adm-empty p  { font-size: 0.85rem; color: var(--text-muted); }
+</style>
+
+<!-- ===== PANEL ADMIN HTML ===== -->
+<div id="adminPanel">
+  <!-- LOGIN -->
+  <div id="adminLogin">
+    <div class="login-box">
+      <span class="logo-big">🦁</span>
+      <h2>Panel Admin</h2>
+      <p>Nosa Kids Station — Area Terproteksi</p>
+      <input class="login-input" type="password" id="admPass"
+        placeholder="••••••••"
+        onkeydown="if(event.key==='Enter') admDoLogin()"/>
+      <div class="login-error" id="admLoginErr">❌ Password salah. Coba lagi.</div>
+      <button class="login-btn" onclick="admDoLogin()" style="margin-top:14px">
+        🔐 Masuk ke Panel Admin
+      </button>
+      <br>
+      <button class="login-close-btn" onclick="admClose()">✕ Tutup</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="adminDash">
+    <!-- Header -->
+    <div class="adm-header">
+      <div class="adm-header-left">
+        <img src="favicon.svg" style="width:28px;height:28px;border-radius:50%"/>
+        <span>Nosa <em>Kids</em> Admin</span>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <span id="admSyncInfo" style="font-size:0.78rem;color:var(--text-muted)"></span>
+        <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="admExport()">
+          <i class="fas fa-download"></i> Export JSON
+        </button>
+        <!-- Tombol Lihat Halaman Produk -->
+        <button class="adm-btn adm-btn-sm" id="admViewPageBtn"
+          onclick="admCloseAndView()"
+          style="background:linear-gradient(135deg,#4ECDC4,#38B2AA);color:white;display:none">
+          <i class="fas fa-eye"></i> Lihat Hasil di Halaman
+        </button>
+        <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="admClose()" style="color:#EF476F">
+          <i class="fas fa-times"></i> Tutup
+        </button>
+      </div>
+    </div>
+    <!-- Banner notif setelah update -->
+    <div id="admUpdateBanner" style="display:none;background:linear-gradient(135deg,#E8F9F0,#C0F5D8);
+      padding:10px 20px;border-bottom:2px solid #06D6A0;
+      display:none;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;font-weight:700;color:#048A64">
+        <span style="font-size:1.2rem">✅</span>
+        <span id="admBannerMsg">Produk berhasil diupdate!</span>
+      </div>
+      <button onclick="admCloseAndView()"
+        style="background:#06D6A0;color:white;border:none;border-radius:100px;
+               padding:7px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;
+               display:flex;align-items:center;gap:6px">
+        <i class="fas fa-eye"></i> Tinjau Halaman Produk →
+      </button>
+    </div>
+    <!-- Tab Bar -->
+    <div class="adm-tab-bar">
+      <button class="adm-tab active" onclick="admTab('semua',this)">🌟 Semua Produk</button>
+      <button class="adm-tab" onclick="admTab('buku',this)">📖 Buku Cerita</button>
+      <button class="adm-tab" onclick="admTab('flashcard',this)">🎴 Flash Card</button>
+      <button class="adm-tab" onclick="admTab('merch',this)">👕 Merchandise</button>
+      <button class="adm-tab" onclick="admTab('settings',this)" style="margin-left:auto">⚙️ Pengaturan</button>
+    </div>
+    <!-- Body -->
+    <div class="adm-body" id="admBody"></div>
+  </div>
+</div>
+
+<!-- MODAL TAMBAH/EDIT -->
+<div class="adm-modal-bg" id="admModalBg">
+  <div class="adm-modal">
+    <div class="adm-modal-head">
+      <h3 id="admModalTitle">Tambah Produk</h3>
+      <button class="adm-modal-close" onclick="admCloseModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="adm-modal-body">
+      <!-- Upload Multi Foto (maks 5) -->
+      <div class="fg">
+        <label>📸 Foto Produk <span style="font-weight:400;color:var(--text-muted)">(maks. 5 foto)</span></label>
+        <div class="foto-upload-multi">
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:8px">
+            <i class="fas fa-info-circle" style="color:var(--primary)"></i>
+            Foto pertama = foto utama. Geser di modal untuk lihat semua foto.
+          </div>
+          <!-- 5 slot foto -->
+          <div class="foto-slots" id="admFotoSlots">
+            <!-- dirender oleh JS -->
+          </div>
+        </div>
+        <!-- Progress upload -->
+        <div class="upload-prog" id="admUpProg" style="margin-top:8px">
+          <div style="font-size:0.8rem;font-weight:700;color:var(--primary)" id="admUpProgLabel">
+            <i class="fas fa-cloud-upload-alt"></i> Mengupload ke Cloudinary...
+          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" id="admProgBar"></div></div>
+        </div>
+        <input type="file" id="admFileInputHidden" accept="image/*" style="display:none"
+          onchange="admHandleSlotFile(this)"/>
+      </div>
+      <!-- Info Produk -->
+      <div class="fg-row">
+        <div class="fg">
+          <label>Nama Produk <span class="req">*</span></label>
+          <input class="fc" type="text" id="fNama" placeholder="Nama produk..."/>
+        </div>
+        <div class="fg">
+          <label>Kategori <span class="req">*</span></label>
+          <select class="fc" id="fKat">
+            <option value="buku">📖 Buku Cerita</option>
+            <option value="flashcard">🎴 Flash Card</option>
+            <option value="merch">👕 Merchandise</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Deskripsi <span class="req">*</span></label>
+        <textarea class="fc" id="fDesk" placeholder="Deskripsi singkat produk..."></textarea>
+      </div>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Usia / Ukuran</label>
+          <input class="fc" type="text" id="fUsia" placeholder="3–8 tahun / Size S,M,L"/>
+        </div>
+        <div class="fg">
+          <label>Emoji Placeholder</label>
+          <input class="fc" type="text" id="fEmoji" placeholder="📖" maxlength="4"/>
+          <div class="emoji-help">
+            <a href="https://emojipedia.org/" target="_blank" rel="noopener">🔎 Cari emoji</a>
+            <a href="https://www.flaticon.com/" target="_blank" rel="noopener">🎨 Cari ikon</a>
+          </div>
+          <div class="fg-hint">Tampil jika belum ada foto. Bisa pakai emoji atau ikon singkat.</div>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg">
+          <label>Label Badge</label>
+          <input class="fc" type="text" id="fBadge" placeholder="Baru / Best Seller / Hits!"/>
+        </div>
+        <div class="fg">
+          <label>🏷️ Status Stok <span class="req">*</span></label>
+          <select class="fc" id="fStok">
+            <option value="ready">✅ Barang Ready</option>
+            <option value="po">🕐 Pre Order</option>
+            <option value="kosong">❌ Stok Kosong</option>
+          </select>
+        </div>
+      </div>
+      <!-- Link Toko -->
+      <div style="margin:12px 0 10px;font-weight:800;font-size:0.85rem;color:var(--text)">
+        🛒 Link Toko Online
+      </div>
+      <div class="fg-row">
+        <div class="fg">
+          <label><i class="fas fa-store" style="color:#42B549"></i> Tokopedia</label>
+          <input class="fc" type="url" id="fTokped" placeholder="https://tokopedia.com/..."/>
+        </div>
+        <div class="fg">
+          <label><i class="fas fa-shopping-bag" style="color:#EE4D2D"></i> Shopee</label>
+          <input class="fc" type="url" id="fShopee" placeholder="https://shopee.co.id/..."/>
+        </div>
+        <div class="fg">
+          <label><i class="fab fa-tiktok"></i> TikTok Shop</label>
+          <input class="fc" type="url" id="fTiktok" placeholder="https://tiktok.com/shop/..."/>
+        </div>
+        <div class="fg">
+          <label><i class="fab fa-whatsapp" style="color:#25D366"></i> Pesan WA (teks)</label>
+          <input class="fc" type="text" id="fWA" placeholder="Halo! Saya mau pesan..."/>
+        </div>
+      </div>
+      <div class="fg">
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+          <input type="checkbox" id="fAktif" checked style="width:16px;height:16px;accent-color:var(--primary)"/>
+          <span>Tampilkan produk ini di halaman publik</span>
+        </label>
+      </div>
+    </div>
+    <div class="adm-modal-foot">
+      <button class="adm-btn adm-btn-ghost" onclick="admCloseModal()">Batal</button>
+      <button class="adm-btn adm-btn-primary" onclick="admSimpan()">
+        <i class="fas fa-save"></i> Simpan Produk
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- KONFIRMASI HAPUS -->
+<div id="admConfirm">
+  <div class="adm-confirm-box">
+    <span class="ci">🗑️</span>
+    <h3>Hapus Produk?</h3>
+    <p>Anda yakin hapus <strong id="admConfirmNama"></strong>?<br>Tidak bisa dibatalkan.</p>
+    <div class="adm-confirm-btns">
+      <button class="adm-btn adm-btn-ghost" onclick="admCloseConfirm()">Batal</button>
+      <button class="adm-btn adm-btn-danger" onclick="admDoHapus()">
+        <i class="fas fa-trash"></i> Ya, Hapus
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="admToast"></div>
+
+<!-- ============================================================
+     MODAL DETAIL PRODUK — muncul saat pengunjung klik kartu
+     ============================================================ -->
+<div class="produk-modal-bg" id="produkModalBg" onclick="closeProdukModal(event)">
+  <div class="produk-modal" id="produkModalBox">
+
+    <!-- Tombol Close -->
+    <button class="pm-close" onclick="closeProdukModal()">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- SISI KIRI: Carousel Foto -->
+    <div class="pm-foto-side" id="pmFotoSide">
+
+      <!-- Main Carousel -->
+      <div class="pm-carousel" id="pmCarousel"
+        ontouchstart="pmTouchStart(event)"
+        ontouchmove="pmTouchMove(event)"
+        ontouchend="pmTouchEnd(event)">
+
+        <!-- Slide akan dirender oleh JS -->
+        <div class="pm-carousel-track" id="pmTrack"></div>
+
+        <!-- Panah navigasi -->
+        <button class="pm-arrow prev" id="pmPrev" onclick="pmGo(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="pm-arrow next" id="pmNext" onclick="pmGo(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Counter (1/3) -->
+        <div class="pm-counter" id="pmCounter"></div>
+
+        <!-- Dots -->
+        <div class="pm-dots" id="pmDots"></div>
+      </div>
+
+      <!-- Thumbnail Strip -->
+      <div class="pm-thumbs" id="pmThumbs"></div>
+
+      <!-- Stok Badge -->
+      <span class="pm-stok-badge" id="pmStokBadge" style="z-index:6"></span>
+    </div>
+
+    <!-- SISI KANAN: Info + Tombol Beli -->
+    <div class="pm-info-side">
+      <span class="pm-cat-badge" id="pmCatBadge"></span>
+      <h2 class="pm-nama" id="pmNama"></h2>
+      <span class="pm-usia" id="pmUsia"></span>
+      <p class="pm-desk" id="pmDesk"></p>
+      <hr class="pm-divider"/>
+      <div class="pm-beli-title">🛒 Beli Sekarang di:</div>
+      <div class="pm-beli-btns" id="pmBeliBtns"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT PANEL ADMIN
+     ============================================================ -->
+<script>
+/* =================================================================
+   NOSA KIDS STATION — Admin Panel & Product System
+   Versi: REBUILD BERSIH
+   ================================================================= */
+
+/* ── KONFIGURASI ── */
+const ADM_PASS_KEY    = 'nosa_adm_pass';
+const ADM_DB_KEY      = 'nosa_produk_v2';
+const ADM_CF_KEY      = 'nosa_cf_cfg';
+const ADM_SB_KEY      = 'nosa_supabase_cfg';
+const ADM_DEFAULT_PASS= 'nosakids123';
+const WA_NUMBER       = '6282240142587';
+
+/* ── STATE VARIABEL ── */
+var _db          = [];
+var _editId      = null;
+var _delId       = null;
+var _curTab      = 'semua';
+var _loggedIn    = false;
+var _uploadUrls  = ['','','','',''];
+var _activeSlot  = 0;
+var _uploadReady = true;
+var _tapCount    = 0;
+var _tapTimer    = null;
+var _keyBuffer   = '';
+var _storageSig  = '';
+
+/* ── CAROUSEL STATE ── */
+var _pmSlides  = [];
+var _pmCurrent = 0;
+var _pmTouchX  = 0;
+
+/* ================================================================
+   AKSES ADMIN TERSEMBUNYI
+   Cara 1 (Laptop): Ketik "nosa" di keyboard
+   Cara 2 (HP): Tap pojok kiri bawah 5x dalam 3 detik
+   ================================================================ */
+
+// Cara 1: Shortcut rahasia keyboard
+document.addEventListener('keydown', function(e) {
+  try {
+    var active = document.activeElement;
+    if (!active) return;
+    var tag = active.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+    var panel = document.getElementById('adminPanel');
+    if (panel && panel.style.display === 'block') return;
+
+    // Kombinasi rahasia: Ctrl + Alt + A
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      admOpen();
+      return;
+    }
+
+    // Alternatif rahasia: ketik "nosakids" di halaman produk
+    if (!/^[a-z]$/i.test(e.key)) {
+      _keyBuffer = '';
+      return;
+    }
+    _keyBuffer += e.key.toLowerCase();
+    if (_keyBuffer.length > 10) _keyBuffer = _keyBuffer.slice(-10);
+    if (_keyBuffer === 'nosakids') { _keyBuffer = ''; admOpen(); }
+  } catch(err) { _keyBuffer = ''; }
+});
+
+// Cara 2: Tap zone tersembunyi (sangat kecil dan transparan)
+document.addEventListener('DOMContentLoaded', function() {
+  var zone = document.createElement('div');
+  zone.id = 'admTapZone';
+  zone.style.cssText = 'position:fixed;bottom:0;left:0;width:32px;height:32px;z-index:8000;background:transparent;opacity:0;cursor:default;-webkit-tap-highlight-color:transparent';
+  document.body.appendChild(zone);
+
+  function onTap(e) {
+    e.stopPropagation();
+    _tapCount++;
+    clearTimeout(_tapTimer);
+    _tapTimer = setTimeout(function(){ _tapCount = 0; }, 3000);
+    if (_tapCount >= 8) { _tapCount = 0; admOpen(); }
+  }
+  zone.addEventListener('click', onTap);
+  zone.addEventListener('touchend', function(e){ e.preventDefault(); onTap(e); });
+
+  // sinkronisasi otomatis ke perubahan dari tab/admin lain
+  setInterval(function(){
+    try {
+      var raw = localStorage.getItem(ADM_DB_KEY) || '';
+      if (raw !== _storageSig) {
+        _storageSig = raw;
+        loadFromLocal();
+      }
+    } catch (err) {}
+  }, 900);
+  window.addEventListener('focus', function(){
+    try { var raw = localStorage.getItem(ADM_DB_KEY) || ''; if (raw !== _storageSig) { _storageSig = raw; loadFromLocal(); } } catch (err) {}
+  });
+
+  // Init produk
+  initProduk();
+});
+
+/* ================================================================
+   INISIALISASI PRODUK
+   Urutan: Supabase → localStorage → HTML statis
+   ================================================================ */
+function normalizeProductRow(p) {
+  if (!p) return p;
+  var active = p.aktif;
+  if (typeof active === 'string') {
+    active = (active === 'true' || active === '1' || active === 'yes');
+  }
+  return Object.assign({}, p, {
+    aktif: !!active,
+    urut: Number(p.urut !== undefined && p.urut !== null ? p.urut : (p.urutan !== undefined && p.urutan !== null ? p.urutan : 0)) || 0,
+    stok: p.stok || 'ready',
+    nama: p.nama || '',
+    kat: p.kat || 'buku'
+  });
+}
+
+function sbNormalizeForSupabase(p) {
+  var row = normalizeProductRow(p || {});
+  var fotos = row.fotos;
+  if (typeof fotos === 'string') {
+    try { fotos = JSON.parse(fotos); } catch (e) { fotos = []; }
+  }
+  if (!Array.isArray(fotos)) fotos = [];
+  var id = row.id;
+  if (id === undefined || id === null || id === '') id = 'prod-' + String(Math.random()).slice(2, 10);
+  return {
+    id: String(id),
+    nama: row.nama || '',
+    kat: row.kat || 'buku',
+    desk: row.desk || '',
+    usia: row.usia || '',
+    emoji: row.emoji || '📦',
+    badge: row.badge || '',
+    stok: row.stok || 'ready',
+    foto: row.foto || '',
+    fotos: fotos,
+    tokped: row.tokped || '',
+    shopee: row.shopee || '',
+    tiktok: row.tiktok || '',
+    wa: row.wa || '',
+    bg: row.bg || '',
+    catClr: row.catClr || '',
+    aktif: !!row.aktif,
+    urut: Number(row.urut || 0)
+  };
+}
+
+function initProduk() {
+  // Coba Supabase dulu jika sudah dikonfigurasi
+  if (sbReady()) {
+    sbLoadProduk().then(function(data) {
+      var rows = Array.isArray(data) ? data.map(normalizeProductRow) : [];
+      if (rows.length > 0) {
+        _db = rows;
+        localStorage.setItem(ADM_DB_KEY, JSON.stringify(_db));
+        renderPublicProducts();
+      } else {
+        loadFromLocal();
+      }
+    }).catch(function(err) {
+      console.warn('Gagal memuat produk dari Supabase:', err);
+      loadFromLocal();
+    });
+  } else {
+    loadFromLocal();
+  }
+}
+
+function loadFromLocal() {
+  var raw = localStorage.getItem(ADM_DB_KEY);
+  _storageSig = raw || '';
+  if (raw) {
+    try {
+      var parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        _db = parsed;
+        renderPublicProducts();
+        return;
+      }
+    } catch(e) { _db = []; }
+  }
+  // Fallback: seed dari HTML
+  _db = seedFromHTML();
+  if (_db.length > 0) renderPublicProducts();
+}
+
+function seedFromHTML() {
+  var cards = document.querySelectorAll('.product-card[data-id]');
+  if (!cards.length) return [];
+  return Array.prototype.slice.call(cards).map(function(c, i) {
+    var fotosStr = c.dataset.fotos || '[]';
+    var fotos = [];
+    try { fotos = JSON.parse(fotosStr.replace(/&quot;/g, '"')); } catch(e) {}
+    return {
+      id: c.dataset.id || ('prod-' + i),
+      nama: c.dataset.nama || '',
+      kat: c.dataset.cat || 'buku',
+      desk: c.dataset.desk || '',
+      usia: c.dataset.usia || '',
+      emoji: c.dataset.emoji || '📦',
+      stok: c.dataset.stok || 'ready',
+      foto: c.dataset.foto || '',
+      fotos: fotos,
+      tokped: c.dataset.tokped || '',
+      shopee: c.dataset.shopee || '',
+      tiktok: c.dataset.tiktok || '',
+      wa: c.dataset.wa || '',
+      bg: c.dataset.bg || '',
+      catClr: c.dataset.catclr || '#FF8C42',
+      aktif: true,
+      urut: i + 1
+    };
+  });
+}
+
+/* ================================================================
+   RENDER PRODUK DI HALAMAN PUBLIK
+   ================================================================ */
+function renderPublicProducts() {
+  var grid = document.getElementById('productsGrid');
+  if (!grid) return;
+  var list = _db.filter(function(p){ return p.aktif; })
+               .sort(function(a,b){ return (a.urut||0)-(b.urut||0); });
+  if (!list.length) return;
+
+  grid.innerHTML = list.map(function(p) {
+    var waMsg = encodeURIComponent(p.wa || ('Halo! Saya mau tanya tentang ' + p.nama));
+    var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + waMsg;
+    var stokMap = {
+      ready:  { cls:'stok-ready',  label:'✅ Ready' },
+      po:     { cls:'stok-po',     label:'🕐 Pre Order' },
+      kosong: { cls:'stok-kosong', label:'❌ Stok Kosong' }
+    };
+    var s = stokMap[p.stok] || stokMap.ready;
+    var overlay = p.stok === 'kosong'
+      ? '<div class="stok-kosong-overlay"><span>Stok Kosong</span></div>' : '';
+    var imgHtml = p.foto
+      ? '<img src="' + p.foto + '" class="product-photo" alt="' + p.nama + '">'  : '';
+    var emojiSpan = '<span class="product-img-placeholder" style="' + (p.foto?'display:none':'') + '">' + (p.emoji||'📦') + '</span>';
+    var badgeHtml = p.badge ? '<span class="product-new-badge">' + p.badge + '</span>' : '';
+    var catClr = p.catClr || '#FF8C42';
+    var catMap = { buku:'📖 Buku Cerita', flashcard:'🎴 Flash Card', merch:'👕 Merchandise' };
+    var catLabel = catMap[p.kat] || p.kat;
+    var fotosJson = JSON.stringify(p.fotos||[]).replace(/"/g,'&quot;');
+
+    return '<div class="product-card" ' +
+      'data-cat="' + p.kat + '" data-id="' + p.id + '" ' +
+      'data-nama="' + p.nama + '" data-desk="' + (p.desk||'').replace(/"/g,'&quot;') + '" ' +
+      'data-usia="' + (p.usia||'') + '" data-emoji="' + (p.emoji||'📦') + '" ' +
+      'data-stok="' + (p.stok||'ready') + '" data-foto="' + (p.foto||'') + '" ' +
+      'data-fotos="' + fotosJson + '" ' +
+      'data-tokped="' + (p.tokped||'') + '" data-shopee="' + (p.shopee||'') + '" ' +
+      'data-tiktok="' + (p.tiktok||'') + '" data-wa="' + ((p.wa||'').replace(/"/g,'&quot;')) + '" ' +
+      'data-bg="' + (p.bg||'') + '" data-catclr="' + catClr + '" ' +
+      'onclick="openProdukModal(\'' + p.id + '\')">' +
+        '<div class="product-img" style="background:' + (p.bg||'#FFF0E6') + '">' +
+          '<span class="product-cat-badge" style="background:' + catClr + '">' + catLabel + '</span>' +
+          badgeHtml + overlay + imgHtml + emojiSpan +
+          '<span class="stok-badge ' + s.cls + '">' + s.label + '</span>' +
+        '</div>' +
+        '<div class="product-body">' +
+          '<h3>' + p.nama + '</h3>' +
+          '<span class="product-age">👦 ' + (p.usia||'Semua usia') + '</span>' +
+          '<p>' + (p.desk||'') + '</p>' +
+        '</div>' +
+        '<div class="product-footer">' +
+          '<div class="product-shop-links">' +
+            (p.tokped ? '<a href="' + p.tokped + '" class="shop-link shop-link-tokped" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-store"></i> Tokped</a>' : '') +
+            (p.shopee ? '<a href="' + p.shopee + '" class="shop-link shop-link-shopee" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-shopping-bag"></i> Shopee</a>' : '') +
+            (p.tiktok ? '<a href="' + p.tiktok + '" class="shop-link shop-link-tiktok" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-tiktok"></i> TikTok</a>' : '') +
+            '<a href="' + waUrl + '" class="shop-link shop-link-wa" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-whatsapp"></i> WA</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }).join('');
+
+  // Pastikan kartu tampil stabil tanpa animasi berat
+  requestAnimationFrame(function() {
+    var cards = grid.querySelectorAll('.product-card');
+    cards.forEach(function(card) {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    });
+  });
+}
+
+/* ── Filter publik ── */
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var cards = document.querySelectorAll('.product-card');
+  var vis = 0;
+  cards.forEach(function(c) {
+    var show = cat === 'all' || c.dataset.cat === cat;
+    c.style.display = show ? 'flex' : 'none';
+    if (show) vis++;
+  });
+  var es = document.getElementById('emptyState');
+  if (es) es.style.display = vis === 0 ? 'block' : 'none';
+}
+
+/* ── Hamburger ── */
+var _hamburger  = document.getElementById('hamburger');
+var _mobileMenu = document.getElementById('mobileMenu');
+if (_hamburger) {
+  _hamburger.addEventListener('click', function() {
+    _hamburger.classList.toggle('open');
+    _mobileMenu.classList.toggle('open');
+  });
+}
+
+/* ================================================================
+   PANEL ADMIN — BUKA / TUTUP
+   ================================================================ */
+function admOpen() {
+  var panel = document.getElementById('adminPanel');
+  var login = document.getElementById('adminLogin');
+  var dash  = document.getElementById('adminDash');
+  if (!panel) { alert('Panel admin tidak ditemukan'); return; }
+  panel.style.display = 'block';
+  login.style.display = 'flex';  // selalu minta password
+  dash.style.display  = 'none';
+  _loggedIn = false;
+  setTimeout(function() {
+    var p = document.getElementById('admPass');
+    if (p) { p.value = ''; p.focus(); }
+  }, 150);
+}
+
+function admClose() {
+  var panel = document.getElementById('adminPanel');
+  if (panel) panel.style.display = 'none';
+  _loggedIn = false;
+  var p = document.getElementById('admPass');
+  if (p) p.value = '';
+  var err = document.getElementById('admLoginErr');
+  if (err) err.style.display = 'none';
+}
+
+function admCloseAndView() {
+  admClose();
+  var grid = document.getElementById('productsGrid');
+  if (grid) setTimeout(function(){ grid.scrollIntoView({ behavior:'smooth', block:'start' }); }, 200);
+}
+
+/* ── Login ── */
+function admDoLogin() {
+  var inp  = document.getElementById('admPass');
+  var err  = document.getElementById('admLoginErr');
+  var pass = inp ? inp.value : '';
+  var correct = localStorage.getItem(ADM_PASS_KEY) || ADM_DEFAULT_PASS;
+  if (pass === correct) {
+    _loggedIn = true;
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('adminDash').style.display  = 'flex';
+    admRenderTab();
+    admToast('Selamat datang! 👋');
+  } else {
+    if (inp) { inp.value = ''; inp.classList.add('shake'); setTimeout(function(){ inp.classList.remove('shake'); }, 400); }
+    if (err) err.style.display = 'block';
+  }
+}
+
+/* ── Tab ── */
+function admTab(tab, btn) {
+  _curTab = tab;
+  document.querySelectorAll('.adm-tab').forEach(function(t){ t.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  admRenderTab();
+}
+
+function admRenderTab() {
+  if (_curTab === 'settings') { admRenderSettings(); return; }
+  admRenderTable();
+}
+
+/* ── Save DB ── */
+function admSaveDB() {
+  localStorage.setItem(ADM_DB_KEY, JSON.stringify(_db));
+  _storageSig = localStorage.getItem(ADM_DB_KEY) || '';
+  try {
+    window.dispatchEvent(new CustomEvent('products:updated', { detail: { db: _db, source: 'admin' } }));
+  } catch (err) {}
+  try { loadFromLocal(); } catch (err) {}
+}
+
+/* ── Toast ── */
+function admToast(msg) {
+  var wrap = document.getElementById('admToast');
+  if (!wrap) return;
+  var el = document.createElement('div');
+  el.className = 'adm-toast-item';
+  el.textContent = msg;
+  wrap.appendChild(el);
+  setTimeout(function(){ if (el.parentNode) el.parentNode.removeChild(el); }, 3000);
+}
+
+/* ── Update banner ── */
+function admShowUpdateBanner(msg) {
+  var banner = document.getElementById('admUpdateBanner');
+  var viewBtn = document.getElementById('admViewPageBtn');
+  var bannerMsg = document.getElementById('admBannerMsg');
+  if (banner) { if (bannerMsg) bannerMsg.textContent = msg||'Produk berhasil diupdate!'; banner.style.display='flex'; }
+  if (viewBtn) viewBtn.style.display='flex';
+}
+
+/* ================================================================
+   RENDER TABEL PRODUK DI ADMIN
+   ================================================================ */
+function admRenderTable() {
+  if (!_db || _db.length === 0) _db = seedFromHTML();
+  var q   = '';
+  var el  = document.getElementById('admQ');
+  if (el) q = el.value.toLowerCase();
+  var sts = '';
+  var sel = document.getElementById('admFilterStok');
+  if (sel) sts = sel.value;
+
+  var list = _db.filter(function(p) {
+    var matchKat = _curTab === 'semua' || p.kat === _curTab;
+    var matchQ   = !q || (p.nama||'').toLowerCase().indexOf(q) >= 0;
+    var matchSts = !sts || p.stok === sts;
+    return matchKat && matchQ && matchSts;
+  }).sort(function(a,b){ return (a.urut||0)-(b.urut||0); });
+
+  var catMap = { buku:'📖 Buku', flashcard:'🎴 Flash Card', merch:'👕 Merch' };
+
+  var body = document.getElementById('admBody');
+  if (!body) return;
+  body.innerHTML =
+    '<div class="adm-toolbar">' +
+      '<div class="adm-search"><i class="fas fa-search" style="color:#b2bec3;font-size:0.8rem"></i>' +
+        '<input type="text" id="admQ" placeholder="Cari produk..." value="' + q + '" ' +
+          'oninput="admRenderTable()" style="border:none;outline:none;font-size:0.85rem;width:100%;background:transparent"/>' +
+      '</div>' +
+      '<select class="adm-select" id="admFilterStok" onchange="admRenderTable()">' +
+        '<option value="">Semua Stok</option>' +
+        '<option value="ready"' + (sts==='ready'?' selected':'') + '>✅ Ready</option>' +
+        '<option value="po"' + (sts==='po'?' selected':'') + '>🕐 Pre Order</option>' +
+        '<option value="kosong"' + (sts==='kosong'?' selected':'') + '>❌ Kosong</option>' +
+      '</select>' +
+      '<span style="font-size:0.8rem;color:#636E72">' + list.length + ' produk</span>' +
+      '<button class="adm-btn adm-btn-primary" style="margin-left:auto" onclick="admOpenModal()">' +
+        '<i class="fas fa-plus"></i> Tambah Produk' +
+      '</button>' +
+    '</div>' +
+    '<div class="adm-table-wrap">' + (list.length ?
+      '<table class="adm-table"><thead><tr>' +
+        '<th>Produk</th><th>Kategori</th><th>Stok</th><th>Foto</th><th>Tampil</th><th>Aksi</th>' +
+      '</tr></thead><tbody>' +
+      list.map(function(p) {
+        return '<tr>' +
+          '<td><div class="prod-row-info">' +
+            '<div class="adm-thumb">' + (p.foto ? '<img src="'+p.foto+'" alt="">' : (p.emoji||'📦')) + '</div>' +
+            '<div><span class="prod-row-name">' + p.nama + '</span>' +
+              '<span class="prod-row-id">' + p.id + '</span></div>' +
+          '</div></td>' +
+          '<td><span class="kat-badge kat-' + p.kat + '">' + (catMap[p.kat]||p.kat) + '</span></td>' +
+          '<td><select class="adm-select" style="padding:4px 8px;font-size:0.78rem;border-radius:8px" onchange="admUbahStok(\'' + p.id + '\',this.value)">' +
+            '<option value="ready"' + (p.stok==='ready'?' selected':'') + '>✅ Ready</option>' +
+            '<option value="po"' + (p.stok==='po'?' selected':'') + '>🕐 Pre Order</option>' +
+            '<option value="kosong"' + (p.stok==='kosong'?' selected':'') + '>❌ Kosong</option>' +
+          '</select></td>' +
+          '<td>' + (p.foto ? '<img src="'+p.foto+'" style="width:36px;height:36px;object-fit:cover;border-radius:6px">' : '<span style="font-size:0.75rem;color:#b2bec3">Belum ada</span>') + '</td>' +
+          '<td><input type="checkbox"' + (p.aktif?' checked':'') + ' onchange="admToggleAktif(\'' + p.id + '\',this.checked)" style="width:16px;height:16px;accent-color:#FF8C42"></td>' +
+          '<td><div class="adm-actions">' +
+            '<button class="adm-icon-btn edit" onclick="admOpenModal(\'' + p.id + '\')"><i class="fas fa-pen"></i></button>' +
+            '<button class="adm-icon-btn del" onclick="admOpenConfirm(\'' + p.id + '\')"><i class="fas fa-trash"></i></button>' +
+          '</div></td>' +
+        '</tr>';
+      }).join('') +
+      '</tbody></table>'
+    : '<div class="adm-empty"><span class="ei">🔍</span><h3>Tidak ada produk</h3></div>') +
+    '</div>';
+}
+
+/* ── Ubah stok langsung ── */
+function admUbahStok(id, val) {
+  var p = _db.find(function(x){ return x.id===id; });
+  if (!p) return;
+  p.stok = val;
+  admSaveDB();
+  renderPublicProducts();
+  admToast('Stok "' + p.nama + '" diubah ke ' + val);
+}
+
+function admToggleAktif(id, val) {
+  var p = _db.find(function(x){ return x.id===id; });
+  if (!p) return;
+  p.aktif = val;
+  admSaveDB();
+  renderPublicProducts();
+  admToast((val ? '✅ ' : '🙈 ') + '"' + p.nama + '" ' + (val?'ditampilkan':'disembunyikan'));
+}
+
+/* ================================================================
+   MODAL TAMBAH / EDIT PRODUK
+   ================================================================ */
+function admOpenModal(id) {
+  _editId = id || null;
+  _uploadUrls = ['','','','',''];
+  _uploadReady = true;
+  var p = id ? _db.find(function(x){ return x.id===id; }) : null;
+
+  var title = document.getElementById('admModalTitle');
+  if (title) title.textContent = p ? '✏️ Edit Produk' : '➕ Tambah Produk Baru';
+
+  function setVal(elId, val) { var el=document.getElementById(elId); if(el) el.value=val||''; }
+  function setChk(elId, val) { var el=document.getElementById(elId); if(el) el.checked=!!val; }
+
+  setVal('fNama',   p ? p.nama   : '');
+  setVal('fKat',    p ? p.kat    : 'buku');
+  setVal('fDesk',   p ? p.desk   : '');
+  setVal('fUsia',   p ? p.usia   : '');
+  setVal('fEmoji',  p ? p.emoji  : '📦');
+  setVal('fBadge',  p ? p.badge  : '');
+  setVal('fStok',   p ? p.stok   : 'ready');
+  setVal('fTokped', p ? p.tokped : '');
+  setVal('fShopee', p ? p.shopee : '');
+  setVal('fTiktok', p ? p.tiktok : '');
+  setVal('fWA',     p ? p.wa     : '');
+  setChk('fAktif',  p ? p.aktif  : true);
+
+  // Init slot foto
+  var existingFotos = p ? (p.fotos || (p.foto ? [p.foto] : [])) : [];
+  admInitSlots(existingFotos);
+
+  var modal = document.getElementById('admModalBg');
+  if (modal) modal.classList.add('open');
+}
+
+function admCloseModal() {
+  var modal = document.getElementById('admModalBg');
+  if (modal) modal.classList.remove('open');
+  var prog = document.getElementById('admUpProg');
+  if (prog) prog.style.display = 'none';
+  _editId = null;
+  _uploadUrls = ['','','','',''];
+  _uploadReady = true;
+}
+
+/* ── Simpan produk ── */
+function admSimpan() {
+  if (!_db || _db.length === 0) _db = seedFromHTML();
+
+  var nama = (document.getElementById('fNama')||{}).value || '';
+  var kat  = (document.getElementById('fKat')||{}).value  || 'buku';
+  var desk = (document.getElementById('fDesk')||{}).value || '';
+  nama = nama.trim(); desk = desk.trim();
+
+  if (!nama) { admToast('⚠️ Nama produk wajib diisi!'); return; }
+  if (!desk) { admToast('⚠️ Deskripsi wajib diisi!');  return; }
+
+  var catClrMap = { buku:'#FF8C42', flashcard:'#4ECDC4', merch:'#6C63FF' };
+  var bgMap = {
+    buku:      'linear-gradient(135deg,#FFF8F0,#FFE4CC)',
+    flashcard: 'linear-gradient(135deg,#E8F8FF,#B8EEFF)',
+    merch:     'linear-gradient(135deg,#F8EEFF,#E0C8FF)'
+  };
+
+  var fotosArr  = _uploadUrls.filter(function(u){ return u && u.length > 5; });
+  var fotoUtama = fotosArr[0] || '';
+
+  function getVal(id) { return (document.getElementById(id)||{}).value || ''; }
+  function getChk(id) { return !!(document.getElementById(id)||{}).checked; }
+
+  var produkData = {
+    nama: nama, kat: kat, desk: desk,
+    usia:   getVal('fUsia'),
+    emoji:  getVal('fEmoji') || '📦',
+    badge:  getVal('fBadge'),
+    stok:   getVal('fStok') || 'ready',
+    tokped: getVal('fTokped'),
+    shopee: getVal('fShopee'),
+    tiktok: getVal('fTiktok'),
+    wa:     getVal('fWA'),
+    aktif:  getChk('fAktif'),
+    foto:   fotoUtama,
+    fotos:  fotosArr,
+    catClr: catClrMap[kat] || '#FF8C42',
+  };
+
+  if (_editId) {
+    var idx = _db.findIndex(function(x){ return x.id===_editId; });
+    if (idx !== -1) {
+      _db[idx] = Object.assign({}, _db[idx], produkData);
+    }
+    admToast('✅ Produk berhasil diupdate!');
+    admShowUpdateBanner('"' + nama + '" berhasil diupdate! Silakan tinjau hasilnya.');
+  } else {
+    var newId = kat.slice(0,5) + '-' + Date.now().toString().slice(-6);
+    _db.push(Object.assign({ id: newId, bg: bgMap[kat]||bgMap.buku, urut: _db.length+1 }, produkData));
+    admToast('🎉 Produk baru berhasil ditambahkan!');
+    admShowUpdateBanner('"' + nama + '" berhasil ditambahkan!');
+  }
+
+  admSaveDB();
+  renderPublicProducts();
+  admCloseModal();
+  admRenderTable();
+
+  // Sync ke Supabase jika sudah dikonfigurasi
+  if (sbReady()) { admSyncToSupabase(); }
+}
+
+/* ── Hapus produk ── */
+function admOpenConfirm(id) {
+  _delId = id;
+  var p = _db.find(function(x){ return x.id===id; });
+  var el = document.getElementById('admConfirmNama');
+  if (el && p) el.textContent = '"' + p.nama + '"';
+  var conf = document.getElementById('admConfirm');
+  if (conf) conf.classList.add('open');
+}
+
+function admCloseConfirm() {
+  var conf = document.getElementById('admConfirm');
+  if (conf) conf.classList.remove('open');
+  _delId = null;
+}
+
+function admDoHapus() {
+  if (!_delId) return;
+  var p = _db.find(function(x){ return x.id===_delId; });
+  var id = _delId;
+  _db = _db.filter(function(x){ return x.id!==_delId; });
+  admSaveDB();
+  renderPublicProducts();
+  admCloseConfirm();
+  admRenderTable();
+  admToast('🗑️ "' + (p?p.nama:'') + '" berhasil dihapus');
+  if (sbReady()) { sbDeleteProduk(id).catch(function(){}); }
+}
+
+/* ================================================================
+   SLOT FOTO MULTI (maks 5)
+   ================================================================ */
+function admInitSlots(existingFotos) {
+  _uploadUrls = ['','','','',''];
+  if (existingFotos && existingFotos.length) {
+    existingFotos.slice(0,5).forEach(function(u,i){ _uploadUrls[i] = u||''; });
+  }
+  admRenderSlots();
+}
+
+function admRenderSlots() {
+  var wrap = document.getElementById('admFotoSlots');
+  if (!wrap) return;
+  wrap.innerHTML = _uploadUrls.map(function(url, i) {
+    var isEmpty = !url || url.length < 5;
+    return '<div class="foto-slot" id="admSlot' + i + '" onclick="admPickSlot(' + i + ')" title="' + (i===0?'Foto Utama':'Foto '+(i+1)) + '">' +
+      (isEmpty
+        ? '<i class="fas fa-plus"></i>' + (i===0?'<span style="font-size:0.5rem;position:absolute;bottom:3px;color:#aaa">Utama</span>':'')
+        : '<img src="' + url + '" alt="foto '+(i+1)+'">' +
+          '<button class="slot-del" onclick="admDelSlot(event,' + i + ')"><i class="fas fa-times"></i></button>' +
+          (i===0?'<span style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:0.5rem;background:rgba(255,140,66,0.85);color:white;padding:1px 5px;border-radius:3px">Utama</span>':'')
+      ) +
+    '</div>';
+  }).join('');
+}
+
+function admPickSlot(i) {
+  _activeSlot = i;
+  var inp = document.getElementById('admFileInputHidden');
+  if (inp) inp.click();
+}
+
+function admDelSlot(e, i) {
+  e.stopPropagation();
+  for (var j=i; j<4; j++) { _uploadUrls[j] = _uploadUrls[j+1]||''; }
+  _uploadUrls[4] = '';
+  admRenderSlots();
+}
+
+function admHandleSlotFile(input) {
+  var file = input.files[0];
+  if (input) input.value = '';
+  if (!file) return;
+  if (file.size > 5*1024*1024) { admToast('⚠️ Ukuran file maks 5MB'); return; }
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var base64 = e.target.result;
+    _uploadUrls[_activeSlot] = base64;
+    _uploadReady = false;
+    admRenderSlots();
+
+    var cfg = JSON.parse(localStorage.getItem(ADM_CF_KEY)||'{}');
+    if (cfg.cloudName && cfg.preset) {
+      admUploadCloudinary(file, base64, _activeSlot);
+    } else if (sbReady()) {
+      admUploadToSupabase(file, base64, _activeSlot);
+    } else {
+      _uploadReady = true;
+      admToast('💾 Foto disimpan lokal. Konfigurasi Cloudinary atau Supabase Storage untuk cloud.');
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ================================================================
+   UPLOAD FOTO — CLOUDINARY
+   ================================================================ */
+async function admUploadCloudinary(file, fallback, slot) {
+  var cfg = JSON.parse(localStorage.getItem(ADM_CF_KEY)||'{}');
+  var prog = document.getElementById('admUpProg');
+  var bar  = document.getElementById('admProgBar');
+  var lbl  = document.getElementById('admUpProgLabel');
+  var btn  = document.querySelector('.adm-modal-foot .adm-btn-primary');
+
+  if (btn) { btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Upload...'; }
+  if (prog) { prog.style.display='block'; }
+  if (bar)  { bar.style.width='20%'; }
+  if (lbl)  { lbl.innerHTML='<i class="fas fa-cloud-upload-alt"></i> Mengupload foto '+(slot+1)+'...'; }
+  _uploadReady = false;
+
+  try {
+    var fd = new FormData();
+    fd.append('file', file);
+    fd.append('upload_preset', cfg.preset);
+    fd.append('folder', cfg.folder||'nosa-kids');
+    if (bar) bar.style.width='50%';
+    var res  = await fetch('https://api.cloudinary.com/v1_1/'+cfg.cloudName+'/image/upload', { method:'POST', body:fd });
+    if (bar) bar.style.width='90%';
+    var data = await res.json();
+    if (data.secure_url) {
+      _uploadUrls[slot] = data.secure_url;
+      _uploadReady = true;
+      if (bar) bar.style.width='100%';
+      setTimeout(function(){ if(prog) prog.style.display='none'; }, 700);
+      admRenderSlots();
+      admToast('☁️ Foto '+(slot+1)+' berhasil diupload!');
+    } else { throw new Error(data.error&&data.error.message||'Upload gagal'); }
+  } catch(e) {
+    if (prog) prog.style.display='none';
+    if (fallback) { _uploadUrls[slot]=fallback; admToast('⚠️ Cloudinary gagal, foto disimpan lokal.'); }
+    _uploadReady = true;
+    admRenderSlots();
+  } finally {
+    if (btn) { btn.disabled=false; btn.innerHTML='<i class="fas fa-save"></i> Simpan Produk'; }
+  }
+}
+
+/* ================================================================
+   UPLOAD FOTO — SUPABASE STORAGE
+   ================================================================ */
+async function admUploadToSupabase(file, fallback, slot) {
+  var c   = sbCfg();
+  var prog= document.getElementById('admUpProg');
+  var bar = document.getElementById('admProgBar');
+  var btn = document.querySelector('.adm-modal-foot .adm-btn-primary');
+
+  if (btn) { btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Upload...'; }
+  if (prog) prog.style.display='block';
+  if (bar)  bar.style.width='30%';
+  _uploadReady=false;
+
+  try {
+    var ext  = file.name.split('.').pop()||'jpg';
+    var name = 'produk-'+Date.now()+'-'+slot+'.'+ext;
+    var res  = await fetch(c.url+'/storage/v1/object/produk-foto/'+name, {
+      method:'POST',
+      headers:{ 'apikey':c.key, 'Authorization':'Bearer '+c.key, 'Content-Type':file.type, 'x-upsert':'true' },
+      body: file
+    });
+    if (!res.ok) throw new Error(await res.text());
+    var url = c.url+'/storage/v1/object/public/produk-foto/'+name;
+    _uploadUrls[slot]=url;
+    _uploadReady=true;
+    if (bar) bar.style.width='100%';
+    setTimeout(function(){ if(prog) prog.style.display='none'; }, 700);
+    admRenderSlots();
+    admToast('🗄️ Foto '+(slot+1)+' berhasil diupload ke Supabase!');
+  } catch(e) {
+    if (prog) prog.style.display='none';
+    if (fallback) { _uploadUrls[slot]=fallback; admToast('⚠️ Upload gagal, foto disimpan lokal.'); }
+    _uploadReady=true;
+    admRenderSlots();
+  } finally {
+    if (btn) { btn.disabled=false; btn.innerHTML='<i class="fas fa-save"></i> Simpan Produk'; }
+  }
+}
+
+/* ================================================================
+   SETTINGS ADMIN
+   ================================================================ */
+function admRenderSettings() {
+  var body = document.getElementById('admBody');
+  if (!body) return;
+
+  var cfg  = JSON.parse(localStorage.getItem(ADM_CF_KEY) || '{}');
+  var sbC  = sbCfg();
+  var sbOk = sbReady();
+
+  // Tulis HTML langsung tanpa concatenation kompleks
+  var html = '';
+
+  // Card Supabase
+  html += '<div class="cfg-card" style="border:2px solid ' + (sbOk ? '#06D6A0' : '#FFD166') + '">';
+  html += '<h4>🗄️ Supabase — Database Online ';
+  html += '<span style="color:' + (sbOk ? '#06D6A0' : '#EF476F') + '">';
+  html += sbOk ? '✅ Terhubung' : '❌ Belum Dikonfigurasi';
+  html += '</span></h4>';
+  html += '<p>Database gratis agar produk Anda tampil ke <strong>semua pengunjung</strong> secara real-time.</p>';
+
+  // Panduan setup dalam details
+  html += '<details style="margin-bottom:14px">';
+  html += '<summary style="cursor:pointer;font-weight:700;color:#FF8C42;padding:6px 0">📋 Panduan Setup (klik untuk buka)</summary>';
+  html += '<div style="background:white;border-radius:8px;padding:12px;margin-top:8px;font-size:0.82rem;line-height:2;border:1px solid #e0e6ed">';
+  html += '1. Buka <a href="https://supabase.com" target="_blank" style="color:#FF8C42">supabase.com</a> &rarr; Sign Up gratis (pakai Google)<br>';
+  html += '2. Klik <strong>New Project</strong> &rarr; tunggu ~2 menit<br>';
+  html += '3. Masuk <strong>Settings &rarr; API</strong> &rarr; salin <strong>Project URL</strong> dan <strong>anon public key</strong><br>';
+  html += '4. Masuk <strong>SQL Editor</strong> &rarr; New Query &rarr; paste SQL di bawah &rarr; klik <strong>RUN</strong><br>';
+  html += '5. Masuk <strong>Storage</strong> &rarr; New Bucket &rarr; nama: <code>produk-foto</code> &rarr; centang Public &rarr; Save';
+  html += '</div>';
+
+  // SQL block
+  html += '<div style="background:#1e1e2e;border-radius:8px;padding:12px;margin-top:8px;font-family:monospace;font-size:0.75rem;color:#cdd6f4;overflow-x:auto;line-height:1.8">';
+  html += '<span style="color:#6c7086">-- Jalankan di SQL Editor Supabase:</span><br>';
+  html += '<span style="color:#cba6f7">create table</span> produk (<br>';
+  html += '&nbsp;&nbsp;id text primary key,<br>';
+  html += '&nbsp;&nbsp;nama text not null,<br>';
+  html += '&nbsp;&nbsp;kat text, desk text, usia text, emoji text, badge text,<br>';
+  html += '&nbsp;&nbsp;stok text default <span style="color:#a6e3a1">\'ready\'</span>,<br>';
+  html += '&nbsp;&nbsp;foto text, fotos jsonb default <span style="color:#a6e3a1">\'[]\'</span>,<br>';
+  html += '&nbsp;&nbsp;tokped text, shopee text, tiktok text, wa text,<br>';
+  html += '&nbsp;&nbsp;bg text, "catClr" text,<br>';
+  html += '&nbsp;&nbsp;aktif boolean default true,<br>';
+  html += '&nbsp;&nbsp;urut integer default 0<br>';
+  html += ');<br><br>';
+  html += 'alter table produk enable row level security;<br>';
+  html += 'create policy "read" on produk for select using (true);<br>';
+  html += 'create policy "insert" on produk for insert with check (true);<br>';
+  html += 'create policy "update" on produk for update using (true);<br>';
+  html += 'create policy "delete" on produk for delete using (true);';
+  html += '</div></details>';
+
+  // Input fields
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">';
+  html += '<div><label style="display:block;font-size:0.8rem;font-weight:700;margin-bottom:6px">Project URL</label>';
+  html += '<input class="fc" type="text" id="sSbUrl" value="' + (sbC.url || '') + '" placeholder="https://xxxx.supabase.co" style="width:100%"/>';
+  html += '<div style="font-size:0.74rem;color:#636E72;margin-top:4px">Settings &rarr; API &rarr; Project URL</div></div>';
+  html += '<div><label style="display:block;font-size:0.8rem;font-weight:700;margin-bottom:6px">Anon Public Key</label>';
+  html += '<input class="fc" type="password" id="sSbKey" value="' + (sbC.key || '') + '" placeholder="eyJhbGci..." style="width:100%"/>';
+  html += '<div style="font-size:0.74rem;color:#636E72;margin-top:4px">Settings &rarr; API &rarr; anon public</div></div>';
+  html += '</div>';
+
+  // Tombol
+  html += '<div style="display:flex;gap:10px;flex-wrap:wrap">';
+  html += '<button class="adm-btn adm-btn-primary" onclick="sSaveSB()"><i class="fas fa-save"></i> Simpan Konfigurasi</button>';
+  html += '<button class="adm-btn adm-btn-ghost" onclick="sTestSB()"><i class="fas fa-plug"></i> Test Koneksi</button>';
+  html += '<button class="adm-btn adm-btn-primary" onclick="sSyncAllToSB()"' + (sbOk ? '' : ' disabled') + '><i class="fas fa-sync"></i> Sync Semua Produk &rarr; Supabase</button>';
+  html += '<button class="adm-btn adm-btn-ghost" onclick="sLoadFromSB()"' + (sbOk ? '' : ' disabled') + '><i class="fas fa-download"></i> Ambil Produk dari Supabase</button>';
+  html += '</div></div>'; // tutup cfg-card supabase
+
+  // Card Cloudinary
+  html += '<div class="cfg-card">';
+  html += '<h4>☁️ Cloudinary — Upload Foto (Opsional)</h4>';
+  html += '<p>Alternatif penyimpanan foto. Daftar gratis di <a href="https://cloudinary.com" target="_blank" style="color:#FF8C42">cloudinary.com</a> &rarr; Settings &rarr; Upload &rarr; Add Upload Preset &rarr; pilih <strong>Unsigned</strong>.</p>';
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">';
+  html += '<div><label style="display:block;font-size:0.8rem;font-weight:700;margin-bottom:6px">Cloud Name</label>';
+  html += '<input class="fc" type="text" id="sCfName" value="' + (cfg.cloudName || '') + '" placeholder="dxxxxxxxxx" style="width:100%"/></div>';
+  html += '<div><label style="display:block;font-size:0.8rem;font-weight:700;margin-bottom:6px">Upload Preset (Unsigned)</label>';
+  html += '<input class="fc" type="text" id="sCfPreset" value="' + (cfg.preset || '') + '" placeholder="nosa_unsigned" style="width:100%"/></div>';
+  html += '</div>';
+  html += '<div style="display:flex;gap:10px">';
+  html += '<button class="adm-btn adm-btn-primary" onclick="sSaveCF()"><i class="fas fa-save"></i> Simpan</button>';
+  html += '<button class="adm-btn adm-btn-ghost" onclick="sTestCF()"><i class="fas fa-plug"></i> Test Koneksi</button>';
+  html += '</div></div>';
+
+  // Card Password
+  html += '<div class="cfg-card">';
+  html += '<h4>🔑 Ganti Password Admin</h4>';
+  html += '<p>Password default: <code>nosakids123</code>. Segera ganti setelah pertama kali masuk!</p>';
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">';
+  html += '<div><label style="display:block;font-size:0.8rem;font-weight:700;margin-bottom:6px">Password Baru</label>';
+  html += '<input class="fc" type="password" id="sPassNew" placeholder="Min. 6 karakter" style="width:100%"/></div>';
+  html += '<div><label style="display:block;font-size:0.8rem;font-weight:700;margin-bottom:6px">Konfirmasi</label>';
+  html += '<input class="fc" type="password" id="sPassConf" placeholder="Ulangi password" style="width:100%"/></div>';
+  html += '</div>';
+  html += '<button class="adm-btn adm-btn-primary" onclick="sSavePass()"><i class="fas fa-lock"></i> Simpan Password</button>';
+  html += '</div>';
+
+  // Card Backup
+  html += '<div class="cfg-card">';
+  html += '<h4>💾 Backup & Import Data</h4>';
+  html += '<p>Download semua data produk sebagai JSON untuk backup, atau import dari file JSON.</p>';
+  html += '<div style="display:flex;gap:10px;flex-wrap:wrap">';
+  html += '<button class="adm-btn adm-btn-primary" onclick="admExport()"><i class="fas fa-download"></i> Download produk.json</button>';
+  html += '<button class="adm-btn adm-btn-ghost" onclick="admImportJSON()"><i class="fas fa-upload"></i> Import JSON</button>';
+  html += '</div>';
+  html += '<input type="file" id="admImportFile" accept=".json" style="display:none" onchange="admHandleImport(this)"/>';
+  html += '</div>';
+
+  body.innerHTML = html;
+}
+
+function normalizeSupabaseUrl(raw) {
+  var value = (raw || '').toString().trim();
+  if (!value) return '';
+  value = value.replace(/\/+$/, '');
+  try {
+    var m = value.match(/https?:\/\/(?:www\.)?supabase\.com\/dashboard\/project\/([^/]+)/i);
+    if (m && m[1]) return 'https://' + m[1] + '.supabase.co';
+  } catch (e) {}
+  try {
+    var u = new URL(value);
+    if (u.hostname && u.hostname.indexOf('supabase.co') !== -1) {
+      if (u.hostname.indexOf('dashboard') === -1 && u.hostname.indexOf('app') === -1) return u.origin;
+    }
+  } catch (e) {}
+  return value;
+}
+
+function sSaveSB() {
+  var url = (document.getElementById('sSbUrl')||{}).value||'';
+  var key = (document.getElementById('sSbKey')||{}).value||'';
+  url = normalizeSupabaseUrl(url.trim()); key = key.trim();
+  if (!url||!key) { admToast('⚠️ Isi URL dan Key dulu!'); return; }
+  localStorage.setItem(ADM_SB_KEY, JSON.stringify({url:url, key:key}));
+  admToast('✅ Konfigurasi Supabase disimpan!');
+  setTimeout(admRenderSettings, 300);
+}
+
+async function sTestSB() {
+  if (!sbReady()) { admToast('⚠️ Isi dan simpan URL & Key dulu!'); return; }
+  admToast('🔌 Testing...');
+  try {
+    await sbFetch('produk?limit=1&select=id');
+    admToast('🎉 Supabase berhasil terhubung! ✅');
+    setTimeout(admRenderSettings, 500);
+  } catch(e) { admToast('❌ ' + sbFriendlyError(e)); }
+}
+
+async function sSyncAllToSB() {
+  if (!sbReady()) { admToast('⚠️ Konfigurasi Supabase dulu!'); return; }
+  if (!_db.length) _db = seedFromHTML();
+  admToast('⬆️ Menyinkronkan ' + _db.length + ' produk...');
+  try {
+    var payload = (_db || []).map(function(p){ return sbNormalizeForSupabase(p); });
+    var c = sbCfg();
+    var res = await fetch(c.url+'/rest/v1/produk', {
+      method:'POST',
+      headers:{ 'apikey':c.key, 'Authorization':'Bearer '+c.key, 'Content-Type':'application/json', 'Prefer':'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok||res.status===201||res.status===204) {
+      admToast('🎉 ' + payload.length + ' produk berhasil disinkronkan!');
+    } else {
+      var text = await res.text();
+      var msg = sbFriendlyError(text);
+      throw new Error(msg);
+    }
+  } catch(e) { admToast('❌ ' + (e.message || 'Sync gagal')); }
+}
+
+async function sLoadFromSB() {
+  if (!sbReady()) { admToast('⚠️ Konfigurasi Supabase dulu!'); return; }
+  admToast('⬇️ Mengambil produk dari Supabase...');
+  try {
+    var rows = await sbLoadProduk();
+    var list = Array.isArray(rows) ? rows.map(normalizeProductRow) : [];
+    if (!list.length) {
+      admToast('ℹ️ Belum ada data produk di Supabase.');
+      return;
+    }
+    _db = list;
+    localStorage.setItem(ADM_DB_KEY, JSON.stringify(_db));
+    renderPublicProducts();
+    admToast('✅ Ditemukan ' + list.length + ' produk dari Supabase.');
+  } catch(e) { admToast('❌ ' + sbFriendlyError(e)); }
+}
+
+function sSaveCF() {
+  var name = (document.getElementById('sCfName')||{}).value||'';
+  var preset=(document.getElementById('sCfPreset')||{}).value||'';
+  localStorage.setItem(ADM_CF_KEY, JSON.stringify({cloudName:name.trim(), preset:preset.trim()}));
+  admToast('✅ Konfigurasi Cloudinary disimpan!');
+}
+
+async function sTestCF() {
+  var cfg = JSON.parse(localStorage.getItem(ADM_CF_KEY)||'{}');
+  if (!cfg.cloudName||!cfg.preset) { admToast('⚠️ Isi Cloud Name & Preset dulu!'); return; }
+  admToast('🔌 Testing Cloudinary...');
+  try {
+    var fd=new FormData();
+    fd.append('file', new Blob(['test'],{type:'image/png'}), 't.png');
+    fd.append('upload_preset', cfg.preset);
+    var res=await fetch('https://api.cloudinary.com/v1_1/'+cfg.cloudName+'/image/upload',{method:'POST',body:fd});
+    var d=await res.json();
+    admToast(d.secure_url ? '☁️ Cloudinary terhubung! ✅' : '❌ Gagal: '+(d.error&&d.error.message||'Error'));
+  } catch(e) { admToast('❌ Tidak dapat terhubung'); }
+}
+
+function sSavePass() {
+  var np=(document.getElementById('sPassNew')||{}).value||'';
+  var cp=(document.getElementById('sPassConf')||{}).value||'';
+  if (np.length<6) { admToast('⚠️ Password min 6 karakter!'); return; }
+  if (np!==cp) { admToast('⚠️ Password tidak sama!'); return; }
+  localStorage.setItem(ADM_PASS_KEY, np);
+  if (document.getElementById('sPassNew')) document.getElementById('sPassNew').value='';
+  if (document.getElementById('sPassConf')) document.getElementById('sPassConf').value='';
+  admToast('🔒 Password berhasil diubah!');
+}
+
+function admExport() {
+  var data = JSON.stringify({lastUpdated:new Date().toISOString().split('T')[0], produk:_db}, null, 2);
+  var blob = new Blob([data],{type:'application/json'});
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement('a');
+  a.href=url; a.download='produk.json'; a.click();
+  URL.revokeObjectURL(url);
+  admToast('💾 produk.json berhasil didownload!');
+}
+
+function admImportJSON() { var el=document.getElementById('admImportFile'); if(el) el.click(); }
+
+function admHandleImport(input) {
+  var file=input.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try {
+      var data=JSON.parse(e.target.result);
+      var arr=Array.isArray(data)?data:(data.produk||[]);
+      if (!arr.length) throw new Error('Data kosong');
+      _db=arr; admSaveDB(); renderPublicProducts(); admRenderTable();
+      admToast('📥 Berhasil import '+_db.length+' produk!');
+    } catch(err) { admToast('❌ Import gagal: '+err.message); }
+  };
+  reader.readAsText(file);
+  input.value='';
+}
+
+/* ================================================================
+   SUPABASE HELPERS
+   ================================================================ */
+function sbCfg() {
+  try {
+    var c = JSON.parse(localStorage.getItem(ADM_SB_KEY)||'{}');
+    if (c && c.url) c.url = normalizeSupabaseUrl(c.url);
+    return c;
+  } catch(e) { return {}; }
+}
+function sbReady() { var c=sbCfg(); return !!(c.url&&c.key); }
+
+function sbFriendlyError(err) {
+  var msg = '';
+  try {
+    if (err && typeof err === 'string') msg = err;
+    else if (err && err.message) msg = err.message;
+    else if (err && err.error) msg = err.error;
+    else if (err && typeof err.toString === 'function') msg = err.toString();
+    else msg = 'Error tidak diketahui';
+  } catch (e) { msg = 'Error tidak diketahui'; }
+
+  var lower = (msg || '').toLowerCase();
+  if (lower.indexOf('pgrst102') !== -1 || lower.indexOf('all object keys must match') !== -1) {
+    return 'Format data yang dikirim ke Supabase tidak seragam. Saya sudah menyesuaikan struktur tiap produk supaya semua baris punya kolom yang sama. Silakan coba lagi.';
+  }
+  if (lower.indexOf('pgrst205') !== -1 || lower.indexOf('could not find the table') !== -1 || lower.indexOf('does not exist') !== -1) {
+    return 'Tabel public.produk belum dibuat di Supabase. Buka SQL Editor, jalankan SQL CREATE TABLE yang ada di panel admin, lalu klik Test Koneksi lagi.';
+  }
+  if (lower.indexOf('row level security') !== -1 || lower.indexOf('new row violates') !== -1) {
+    return 'Akses Supabase dibatasi oleh policy RLS. Aktifkan policy read/insert/update/delete sesuai SQL di panel admin.';
+  }
+  if (lower.indexOf('jwt') !== -1 || lower.indexOf('invalid api key') !== -1) {
+    return 'Kunci anon public Supabase salah atau tidak cocok. Periksa Project URL dan anon public key.';
+  }
+  return msg || 'Gagal terhubung ke Supabase.';
+}
+
+async function sbFetch(endpoint, method, body) {
+  method = method||'GET';
+  var c = sbCfg();
+  if (!c.url||!c.key) throw new Error('Supabase belum dikonfigurasi');
+  var opts = {
+    method: method,
+    headers: {
+      'apikey': c.key,
+      'Authorization': 'Bearer '+c.key,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation'
+    }
+  };
+  if (body) opts.body = JSON.stringify(body);
+  var res = await fetch(c.url+'/rest/v1/'+endpoint, opts);
+  if (!res.ok) {
+    var text = await res.text();
+    var msg = text;
+    try { var obj = JSON.parse(text); msg = obj.message || msg; } catch (e) {}
+    throw new Error(msg);
+  }
+  return res.status===204 ? [] : res.json();
+}
+
+async function sbLoadProduk() {
+  var rows = await sbFetch('produk?select=*&order=urut.asc');
+  return Array.isArray(rows) ? rows : [];
+}
+
+async function sbDeleteProduk(id) {
+  return sbFetch('produk?id=eq.'+id, 'DELETE');
+}
+
+async function admSyncToSupabase() {
+  try {
+    var c=sbCfg();
+    var payload = (_db || []).map(function(p){ return sbNormalizeForSupabase(p); });
+    var res=await fetch(c.url+'/rest/v1/produk', {
+      method:'POST',
+      headers:{ 'apikey':c.key,'Authorization':'Bearer '+c.key,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal' },
+      body:JSON.stringify(payload)
+    });
+    if (res.ok||res.status===201||res.status===204) admToast('☁️ Tersinkron ke Supabase!');
+    else { throw new Error(await res.text()); }
+  } catch(e) { console.warn('Sync gagal:',e); admToast('❌ ' + sbFriendlyError(e)); }
+}
+
+/* ================================================================
+   MODAL DETAIL PRODUK (klik kartu)
+   ================================================================ */
+var _stokInfo = {
+  ready:  { cls:'stok-ready',  label:'✅ Ready' },
+  po:     { cls:'stok-po',     label:'🕐 Pre Order' },
+  kosong: { cls:'stok-kosong', label:'❌ Stok Kosong' }
+};
+var _catInfo = {
+  buku:      { label:'📖 Buku Cerita', bg:'#FF8C42' },
+  flashcard: { label:'🎴 Flash Card',  bg:'#4ECDC4' },
+  merch:     { label:'👕 Merchandise', bg:'#6C63FF' }
+};
+
+function openProdukModal(id) {
+  var p = null;
+  var raw = localStorage.getItem(ADM_DB_KEY);
+  if (raw) { try { p = JSON.parse(raw).find(function(x){ return x.id===id; }); } catch(e){} }
+  if (!p) {
+    var card = document.querySelector('.product-card[data-id="'+id+'"]');
+    if (!card) return;
+    var fotos=[];
+    try { fotos=JSON.parse((card.dataset.fotos||'[]').replace(/&quot;/g,'"')); } catch(e){}
+    p = {
+      id:id, nama:card.dataset.nama||'', kat:card.dataset.cat||'buku',
+      desk:card.dataset.desk||'', usia:card.dataset.usia||'',
+      emoji:card.dataset.emoji||'📦', stok:card.dataset.stok||'ready',
+      foto:card.dataset.foto||'', fotos:fotos,
+      tokped:card.dataset.tokped||'', shopee:card.dataset.shopee||'',
+      tiktok:card.dataset.tiktok||'', wa:card.dataset.wa||'',
+      bg:card.dataset.bg||'', catClr:card.dataset.catclr||'#FF8C42'
+    };
+  }
+  if (!p) return;
+
+  var stok = _stokInfo[p.stok]||_stokInfo.ready;
+  var cat  = _catInfo[p.kat]||_catInfo.buku;
+  var waMsg = encodeURIComponent(p.wa||('Halo! Saya tertarik dengan '+p.nama+'. Boleh saya tanya?'));
+
+  // Kumpulkan foto untuk carousel
+  _pmSlides = [];
+  if (p.foto && p.foto.length>5) _pmSlides.push({type:'img',src:p.foto});
+  (p.fotos||[]).forEach(function(f){ if(f&&f.length>5) _pmSlides.push({type:'img',src:f}); });
+  if (!_pmSlides.length) _pmSlides.push({type:'emoji',val:p.emoji||'📦'});
+  _pmSlides = _pmSlides.slice(0,5);
+  _pmCurrent = 0;
+
+  // Set background foto side
+  var fotoSide = document.getElementById('pmFotoSide');
+  if (fotoSide && p.bg) fotoSide.style.background = p.bg;
+
+  // Build carousel
+  pmBuildCarousel();
+
+  // Stok badge
+  var stokBadge = document.getElementById('pmStokBadge');
+  if (stokBadge) { stokBadge.textContent=stok.label; stokBadge.className='pm-stok-badge '+stok.cls; }
+
+  // Info
+  var catBadge = document.getElementById('pmCatBadge');
+  if (catBadge) { catBadge.textContent=cat.label; catBadge.style.background=p.catClr||cat.bg; }
+  var namaEl=document.getElementById('pmNama'); if(namaEl) namaEl.textContent=p.nama;
+  var usiaEl=document.getElementById('pmUsia'); if(usiaEl) usiaEl.textContent='👦 '+(p.usia||'Semua usia');
+  var deskEl=document.getElementById('pmDesk'); if(deskEl) deskEl.textContent=p.desk;
+
+  // Tombol beli
+  var btns = [];
+  if (p.tokped) btns.push('<a href="'+p.tokped+'" class="pm-beli-btn pm-beli-tokped" target="_blank"><i class="fas fa-store"></i><span>Beli di <strong>Tokopedia</strong></span><i class="fas fa-chevron-right arrow"></i></a>');
+  if (p.shopee) btns.push('<a href="'+p.shopee+'" class="pm-beli-btn pm-beli-shopee" target="_blank"><i class="fas fa-shopping-bag"></i><span>Beli di <strong>Shopee</strong></span><i class="fas fa-chevron-right arrow"></i></a>');
+  if (p.tiktok) btns.push('<a href="'+p.tiktok+'" class="pm-beli-btn pm-beli-tiktok" target="_blank"><i class="fab fa-tiktok"></i><span>Beli di <strong>TikTok Shop</strong></span><i class="fas fa-chevron-right arrow"></i></a>');
+  btns.push('<a href="https://wa.me/'+WA_NUMBER+'?text='+waMsg+'" class="pm-beli-btn pm-beli-wa" target="_blank"><i class="fab fa-whatsapp"></i><span>Tanya / Pesan via <strong>WhatsApp</strong></span><i class="fas fa-chevron-right arrow"></i></a>');
+  var beliBtns=document.getElementById('pmBeliBtns'); if(beliBtns) beliBtns.innerHTML=btns.join('');
+
+  // Buka modal
+  var modal = document.getElementById('produkModalBg');
+  if (!modal) return;
+  modal.style.display='flex';
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){ modal.classList.add('open'); });
+}
+
+function closeProdukModal(e) {
+  if (e && e.target !== document.getElementById('produkModalBg')) return;
+  var modal = document.getElementById('produkModalBg');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(function(){ modal.style.display='none'; }, 300);
+}
+
+/* ── Carousel ── */
+function pmBuildCarousel() {
+  var track  = document.getElementById('pmTrack');
+  var thumbs = document.getElementById('pmThumbs');
+  var dots   = document.getElementById('pmDots');
+  if (!track) return;
+  var n = _pmSlides.length;
+
+  track.innerHTML = _pmSlides.map(function(s) {
+    if (s.type==='img') return '<div class="pm-carousel-slide"><img src="'+s.src+'" alt="" onerror="this.parentNode.innerHTML=\'<div class=slide-emoji>📦</div>\'"/></div>';
+    return '<div class="pm-carousel-slide"><div class="slide-emoji">'+s.val+'</div></div>';
+  }).join('');
+
+  if (thumbs) {
+    thumbs.style.display = n>1?'flex':'none';
+    thumbs.innerHTML = n>1 ? _pmSlides.map(function(s,i){
+      var inner = s.type==='img' ? '<img src="'+s.src+'" alt=""/>' : s.val;
+      return '<div class="pm-thumb '+(i===0?'active':'')+'" onclick="pmGoTo('+i+')">'+inner+'</div>';
+    }).join('') : '';
+  }
+
+  if (dots) {
+    dots.innerHTML = n>1 ? _pmSlides.map(function(_,i){
+      return '<div class="pm-dot '+(i===0?'active':'')+'"></div>';
+    }).join('') : '';
+  }
+
+  pmUpdateUI();
+}
+
+function pmGo(dir) {
+  var n = _pmSlides.length;
+  _pmCurrent = Math.max(0, Math.min(n-1, _pmCurrent+dir));
+  pmUpdateUI();
+}
+
+function pmGoTo(idx) { _pmCurrent=idx; pmUpdateUI(); }
+
+function pmUpdateUI() {
+  var track  = document.getElementById('pmTrack');
+  var counter= document.getElementById('pmCounter');
+  var prev   = document.getElementById('pmPrev');
+  var next   = document.getElementById('pmNext');
+  var n      = _pmSlides.length;
+  if (track)  track.style.transform='translateX(-'+(_pmCurrent*100)+'%)';
+  if (counter){ counter.textContent=n>1?(_pmCurrent+1)+' / '+n:''; counter.style.display=n>1?'block':'none'; }
+  if (prev)   prev.classList.toggle('disabled', _pmCurrent===0);
+  if (next)   next.classList.toggle('disabled', _pmCurrent===n-1);
+  document.querySelectorAll('.pm-dot').forEach(function(d,i){ d.classList.toggle('active',i===_pmCurrent); });
+  document.querySelectorAll('.pm-thumb').forEach(function(t,i){ t.classList.toggle('active',i===_pmCurrent); });
+  var activeThumb = document.querySelector('.pm-thumb.active');
+  if (activeThumb) activeThumb.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function pmTouchStart(e) { _pmTouchX=e.touches[0].clientX; }
+function pmTouchMove(e)  { e.preventDefault(); }
+function pmTouchEnd(e)   { var diff=_pmTouchX-e.changedTouches[0].clientX; if(Math.abs(diff)>40) pmGo(diff>0?1:-1); }
+
+// Keyboard untuk carousel dan ESC close
+document.addEventListener('keydown', function(e) {
+  var modal = document.getElementById('produkModalBg');
+  if (modal && modal.classList.contains('open')) {
+    if (e.key==='ArrowLeft')  pmGo(-1);
+    if (e.key==='ArrowRight') pmGo(1);
+    if (e.key==='Escape')     closeProdukModal();
+  }
+  var admConfirm = document.getElementById('admConfirm');
+  if (admConfirm && admConfirm.classList.contains('open') && e.key==='Escape') admCloseConfirm();
+  var admModal = document.getElementById('admModalBg');
+  if (admModal && admModal.classList.contains('open') && e.key==='Escape') admCloseModal();
+});
+
+window.addEventListener('storage', function(e) {
+  if (e.key === 'nosa_produk_v2') {
+    _storageSig = e.newValue || '';
+    loadFromLocal();
+    renderPublicProducts();
+  }
+});
+window.addEventListener('products:updated', function(e) {
+  try {
+    if (e && e.detail && Array.isArray(e.detail.db)) _db = e.detail.db;
+  } catch (err) {}
+  loadFromLocal();
+  renderPublicProducts();
+});
+
+</script>
+
+</body>
+</html>

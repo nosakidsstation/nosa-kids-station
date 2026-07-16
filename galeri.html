@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeri — Nosa Kids Station</title>
+  <meta name="description" content="Jelajahi galeri ilustrasi, video edukatif, dan momen bersama Nosa Kids Station." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== TAB NAV ===== */
+    .tab-nav {
+      display: flex; gap: 0;
+      justify-content: center;
+      background: white; border-radius: var(--radius-lg);
+      padding: 6px; box-shadow: var(--shadow-sm);
+      margin-bottom: 48px; flex-wrap: wrap;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .tab-btn {
+      flex: 1; min-width: 140px;
+      padding: 13px 24px; border-radius: var(--radius-md);
+      font-family: var(--font-heading); font-weight: 700;
+      font-size: 0.95rem; cursor: pointer; border: none;
+      background: transparent; color: var(--text-muted);
+      transition: all 0.3s ease; text-align: center;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+      color: white; box-shadow: var(--shadow-sm);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ===== MASONRY GRID (Illustrations) ===== */
+    .masonry-grid {
+      column-count: 3; column-gap: 20px;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .masonry-item:hover { transform: scale(1.02); box-shadow: var(--shadow-md); }
+    .masonry-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-img {
+      width: 100%; display: block;
+      min-height: 160px;
+      background: linear-gradient(135deg, #FFF0E6, #FFD9C0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative;
+    }
+    .gallery-img.tall { min-height: 280px; }
+    .gallery-img.medium { min-height: 220px; }
+    /* When you add real images replace the emoji div with:
+       <img src="your-image.jpg" alt="desc" style="width:100%;display:block"> */
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(255,140,66,0.8);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .gallery-overlay i { color: white; font-size: 2rem; }
+    .gallery-label {
+      padding: 12px 16px; background: white;
+      font-size: 0.85rem; font-weight: 700; color: var(--text);
+    }
+
+    /* ===== VIDEO GRID ===== */
+    .video-categories {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 32px; justify-content: center;
+    }
+    .video-cat-btn {
+      padding: 8px 20px; border-radius: 100px;
+      font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; border: 2px solid var(--border);
+      background: white; color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+    .video-cat-btn:hover, .video-cat-btn.active {
+      background: var(--secondary); color: white; border-color: var(--secondary);
+    }
+    .videos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .video-card {
+      background: white; border-radius: var(--radius-md);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: var(--transition); cursor: pointer;
+    }
+    .video-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .video-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .video-thumb .play-overlay {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--primary);
+      transition: var(--transition);
+    }
+    .video-card:hover .play-overlay { transform: scale(1.15); }
+    .video-thumb .views {
+      position: absolute; bottom: 10px; right: 12px;
+      background: rgba(0,0,0,0.7); color: white;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .video-card-body { padding: 16px; }
+    .video-card-body h3 { font-size: 0.95rem; margin-bottom: 6px; line-height: 1.4; }
+    .video-cat-tag {
+      display: inline-block; background: var(--bg3);
+      color: var(--secondary-dark); font-size: 0.75rem;
+      font-weight: 700; padding: 3px 10px; border-radius: 100px;
+    }
+    .youtube-link-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin-top: 40px; flex-wrap: wrap;
+    }
+
+    /* ===== MOMENTS (User Gallery) ===== */
+    .moments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .moment-card {
+      border-radius: var(--radius-sm); overflow: hidden;
+      cursor: pointer; position: relative;
+      box-shadow: var(--shadow-sm); transition: var(--transition);
+      background: linear-gradient(135deg, #f8f8f8, #eee);
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .moment-card:hover { transform: scale(1.04); box-shadow: var(--shadow-md); }
+    .moment-card .moment-overlay {
+      position: absolute; inset: 0;
+      background: rgba(255,140,66,0.75);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .moment-card:hover .moment-overlay { opacity: 1; }
+    .moment-overlay i { color: white; font-size: 1.6rem; }
+    .moment-overlay span { color: white; font-size: 0.82rem; font-weight: 700; }
+    .upload-cta-box {
+      background: linear-gradient(135deg, var(--bg2), #FFF0D6);
+      border: 2px dashed var(--primary);
+      border-radius: var(--radius-md);
+      padding: 40px; text-align: center; margin-top: 32px;
+    }
+    .upload-cta-box h3 { margin-bottom: 10px; }
+    .upload-cta-box p { color: var(--text-muted); margin-bottom: 20px; }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-content {
+      max-width: 800px; width: 100%;
+      background: white; border-radius: var(--radius-md);
+      overflow: hidden; position: relative;
+      max-height: 90vh;
+    }
+    .lightbox-img {
+      min-height: 300px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem;
+    }
+    .lightbox-body { padding: 24px; }
+    .lightbox-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,0,0,0.5); color: white;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; border: none;
+      transition: all 0.2s ease;
+    }
+    .lightbox-close:hover { background: var(--danger); }
+
+    @media (max-width: 1024px) {
+      .masonry-grid { column-count: 2; }
+      .videos-grid { grid-template-columns: repeat(2, 1fr); }
+      .moments-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .masonry-grid { column-count: 2; }
+      .videos-grid { grid-template-columns: 1fr; }
+      .moments-grid { grid-template-columns: repeat(2, 1fr); }
+      .tab-btn { min-width: 100px; font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .masonry-grid { column-count: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="favicon.svg" alt="Logo" />
+      Nosa <span>Kids</span> Station
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Beranda</a></li>
+      <li><a href="tentang.html">👋 Tentang</a></li>
+      <li><a href="produk.html">🛍️ Produk</a></li>
+      <li><a href="galeri.html" class="active">🖼️ Galeri</a></li>
+      <li><a href="kontak.html">📞 Kontak</a></li>
+    </ul>
+    <a href="https://wa.me/6282240142587" class="btn btn-wa nav-cta" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat WA
+    </a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Beranda</a>
+  <a href="tentang.html">👋 Tentang Kami</a>
+  <a href="produk.html">🛍️ Produk</a>
+  <a href="galeri.html">🖼️ Galeri</a>
+  <a href="kontak.html">📞 Kontak</a>
+  <a href="https://wa.me/6282240142587" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Chat WA</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <h1>🖼️ Galeri Nosa Kids Station</h1>
+    <p>Jelajahi dunia visual Nosa Kids — ilustrasi, video, dan momen bersama keluarga Indonesia.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span>›</span>
+      <span>Galeri</span>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="section">
+  <div class="container">
+    <!-- TABS -->
+    <div class="tab-nav fade-up">
+      <button class="tab-btn active" onclick="switchTab('ilustrasi', this)">🎨 Ilustrasi</button>
+      <button class="tab-btn" onclick="switchTab('video', this)">🎬 Video</button>
+      <button class="tab-btn" onclick="switchTab('momen', this)">📸 Momen</button>
+    </div>
+
+    <!-- ===== TAB 1: ILUSTRASI ===== -->
+    <div class="tab-panel active" id="tab-ilustrasi">
+      <div class="section-header" style="margin-bottom:32px">
+        <h3 style="color:var(--text)">🎨 Galeri Ilustrasi</h3>
+        <p style="color:var(--text-muted);max-width:560px;margin:8px auto 0">
+          Koleksi ilustrasi original karakter dan scene dari dunia Nosa Kids Station. Klik gambar untuk memperbesar.
+          <br><small style="color:var(--primary);font-weight:700">💡 Ganti emoji dengan foto/ilustrasi asli Anda di file galeri.html</small>
+        </p>
+      </div>
+
+      <!--  HOW TO ADD YOUR ILLUSTRATIONS:
+            Replace any <div class="gallery-img ...">EMOJI</div> with:
+            <img src="nama-file.jpg" alt="Deskripsi" style="width:100%;display:block">
+            and remove the font-size/display:flex styles from the parent div  -->
+
+      <div class="masonry-grid">
+        <div class="masonry-item" onclick="openLightbox('Karakter Nosa Lion', '🦁', 'Karakter utama Nosa Kids Station — Nosa si Singa yang cerdas dan pemberani!')">
+          <div class="gallery-img tall" style="background:linear-gradient(135deg,#FFF0E6,#FFD9C0)">🦁</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🦁 Karakter Nosa Lion</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Petualangan di Hutan', '🌳', 'Scene petualangan Nosa di hutan tropis yang penuh warna.')">
+          <div class="gallery-img medium" style="background:linear-gradient(135deg,#E8FFF0,#C0F5D8)">🌳</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🌳 Petualangan di Hutan</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Dunia Bawah Laut', '🌊', 'Scene kehidupan bawah laut yang memukau dengan warna-warni terumbu karang.')">
+          <div class="gallery-img" style="background:linear-gradient(135deg,#E6F8FF,#B8EEFF)">🌊</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🌊 Dunia Bawah Laut</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Sahabat Nosa — Bona si Gajah', '🐘', 'Bona si Gajah bijak, sahabat setia Nosa dalam setiap petualangan.')">
+          <div class="gallery-img medium" style="background:linear-gradient(135deg,#F5F5FF,#DDD8FF)">🐘</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🐘 Bona si Gajah</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Malam Berbintang', '🌙', 'Scene malam yang indah penuh bintang dari serial astronomi Nosa Kids.')">
+          <div class="gallery-img tall" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">🌙</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label" style="background:#1a1a2e;color:white">🌙 Malam Berbintang</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Kebun Bunga Warna-warni', '🌸', 'Ilustrasi kebun bunga penuh warna yang mengajarkan tentang tumbuhan.')">
+          <div class="gallery-img" style="background:linear-gradient(135deg,#FFF0F5,#FFD6E7)">🌸</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🌸 Kebun Bunga</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Rina si Rusa', '🦌', 'Rina si Rusa yang lincah, teman baru Nosa dalam seri hutan Indonesia.')">
+          <div class="gallery-img medium" style="background:linear-gradient(135deg,#FFF8E6,#FFE4A0)">🦌</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🦌 Rina si Rusa</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Gunung Berapi', '🌋', 'Ilustrasi edukatif tentang proses gunung berapi yang mendebarkan.')">
+          <div class="gallery-img" style="background:linear-gradient(135deg,#FFF0E6,#FFCBA0)">🌋</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">🌋 Gunung Berapi</div>
+        </div>
+        <div class="masonry-item" onclick="openLightbox('Sketsa Konsep Karakter', '✏️', 'Proses behind-the-scenes pembuatan karakter Nosa Kids Station.')">
+          <div class="gallery-img tall" style="background:linear-gradient(135deg,#F8F8F8,#EEEEEE)">✏️</div>
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+          <div class="gallery-label">✏️ Sketsa Karakter</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 2: VIDEO ===== -->
+    <div class="tab-panel" id="tab-video">
+      <div class="section-header" style="margin-bottom:32px">
+        <h3 style="color:var(--text)">🎬 Galeri Video</h3>
+        <p style="color:var(--text-muted);max-width:560px;margin:8px auto 0">
+          Koleksi video pilihan dari kanal YouTube Nosa Kids Station.
+        </p>
+      </div>
+
+      <!-- VIDEO CATEGORY FILTER -->
+      <div class="video-categories">
+        <button class="video-cat-btn active" onclick="filterVideos('all', this)">🌟 Semua</button>
+        <button class="video-cat-btn" onclick="filterVideos('hewan', this)">🐾 Dunia Hewan</button>
+        <button class="video-cat-btn" onclick="filterVideos('tumbuhan', this)">🌱 Tumbuhan</button>
+        <button class="video-cat-btn" onclick="filterVideos('sains', this)">🔬 Sains</button>
+        <button class="video-cat-btn" onclick="filterVideos('alam', this)">🌈 Fenomena Alam</button>
+      </div>
+
+      <!-- VIDEO GRID -->
+      <!-- HOW TO EMBED REAL YOUTUBE VIDEOS:
+           Replace the .video-thumb div with:
+           <div class="video-thumb" style="padding:0">
+             <iframe width="100%" height="180" src="https://www.youtube.com/embed/VIDEO_ID"
+               frameborder="0" allowfullscreen style="display:block"></iframe>
+           </div>
+           Or keep the thumbnail and use onclick to open a lightbox/new tab  -->
+      <div class="videos-grid" id="videosGrid">
+        <div class="video-card fade-up" data-vcat="hewan" onclick="openVideoLink('VIDEO_ID_1')">
+          <div class="video-thumb" style="background:linear-gradient(135deg,#FF8C42,#FF6B35)">
+            <div class="play-overlay"><i class="fas fa-play" style="margin-left:3px"></i></div>
+            <span class="views">👁 1.2K views</span>
+          </div>
+          <div class="video-card-body">
+            <h3>Mengenal 10 Hewan Terbesar di Dunia</h3>
+            <span class="video-cat-tag">🐾 Dunia Hewan</span>
+          </div>
+        </div>
+        <div class="video-card fade-up" data-vcat="hewan" onclick="openVideoLink('VIDEO_ID_2')">
+          <div class="video-thumb" style="background:linear-gradient(135deg,#4ECDC4,#38B2AA)">
+            <div class="play-overlay"><i class="fas fa-play" style="margin-left:3px"></i></div>
+            <span class="views">👁 980 views</span>
+          </div>
+          <div class="video-card-body">
+            <h3>Kehidupan Seru di Bawah Laut Indonesia</h3>
+            <span class="video-cat-tag">🐾 Dunia Hewan</span>
+          </div>
+        </div>
+        <div class="video-card fade-up" data-vcat="tumbuhan" onclick="openVideoLink('VIDEO_ID_3')">
+          <div class="video-thumb" style="background:linear-gradient(135deg,#06D6A0,#048A64)">
+            <div class="play-overlay"><i class="fas fa-play" style="margin-left:3px"></i></div>
+            <span class="views">👁 756 views</span>
+          </div>
+          <div class="video-card-body">
+            <h3>Bunga-bunga Cantik Asli Indonesia</h3>
+            <span class="video-cat-tag">🌱 Tumbuhan</span>
+          </div>
+        </div>
+        <div class="video-card fade-up" data-vcat="sains" onclick="openVideoLink('VIDEO_ID_4')">
+          <div class="video-thumb" style="background:linear-gradient(135deg,#6C63FF,#4A42CC)">
+            <div class="play-overlay"><i class="fas fa-play" style="margin-left:3px"></i></div>
+            <span class="views">👁 2.1K views</span>
+          </div>
+          <div class="video-card-body">
+            <h3>Mengapa Langit Berwarna Biru?</h3>
+            <span class="video-cat-tag">🔬 Sains</span>
+          </div>
+        </div>
+        <div class="video-card fade-up" data-vcat="alam" onclick="openVideoLink('VIDEO_ID_5')">
+          <div class="video-thumb" style="background:linear-gradient(135deg,#FFD166,#FFA500)">
+            <div class="play-overlay"><i class="fas fa-play" style="margin-left:3px"></i></div>
+            <span class="views">👁 1.5K views</span>
+          </div>
+          <div class="video-card-body">
+            <h3>Proses Terjadinya Pelangi yang Indah</h3>
+            <span class="video-cat-tag">🌈 Fenomena Alam</span>
+          </div>
+        </div>
+        <div class="video-card fade-up" data-vcat="sains" onclick="openVideoLink('VIDEO_ID_6')">
+          <div class="video-thumb" style="background:linear-gradient(135deg,#EF476F,#C0284D)">
+            <div class="play-overlay"><i class="fas fa-play" style="margin-left:3px"></i></div>
+            <span class="views">👁 890 views</span>
+          </div>
+          <div class="video-card-body">
+            <h3>Daur Air — Dari Mana Hujan Berasal?</h3>
+            <span class="video-cat-tag">🔬 Sains</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="youtube-link-row fade-up">
+        <p style="color:var(--text-muted);font-size:0.95rem">Tonton lebih banyak video di channel kami:</p>
+        <a href="https://www.youtube.com/@NosaKidsStation" class="btn btn-primary btn-lg" target="_blank">
+          <i class="fab fa-youtube"></i> Kunjungi YouTube Channel
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== TAB 3: MOMEN ===== -->
+    <div class="tab-panel" id="tab-momen">
+      <div class="section-header" style="margin-bottom:32px">
+        <h3 style="color:var(--text)">📸 Momen Bersama Nosa</h3>
+        <p style="color:var(--text-muted);max-width:560px;margin:8px auto 0">
+          Lihat bagaimana keluarga Indonesia menikmati produk dan konten Nosa Kids Station!
+          Tag kami <strong>@nosakidsstation</strong> untuk tampil di sini.
+        </p>
+      </div>
+
+      <!-- MOMENTS GRID — Add your real customer photos here -->
+      <div class="moments-grid">
+        <div class="moment-card fade-up" onclick="openLightbox('Keluarga Bersama Nosa', '👨‍👩‍👧', 'Keluarga Budiman dari Jakarta belajar bersama dengan flash card Nosa Kids!')">
+          <div style="font-size:3rem">👨‍👩‍👧</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 24</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Si Kecil Membaca', '📚', 'Nayla usia 4 tahun asyik membaca buku cerita Nosa!')">
+          <div style="font-size:3rem">📚</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 38</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Belajar dengan Flash Card', '🃏', 'Arya belajar nama hewan dengan flash card Nosa Kids yang seru!')">
+          <div style="font-size:3rem">🃏</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 52</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Kaos Nosa Keren!', '👕', 'Zaka tampil keren dengan kaos Nosa Lion favoritnya!')">
+          <div style="font-size:3rem">👕</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 67</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Menonton Bersama', '📺', 'Dua kakak beradik nonton video Nosa Kids di tablet!')">
+          <div style="font-size:3rem">📺</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 41</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Hadiah Ulang Tahun', '🎁', 'Bona berterima kasih atas hadiah paket buku + flash card Nosa!')">
+          <div style="font-size:3rem">🎁</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 29</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Nonton Bareng Ayah', '👨‍👧', 'Moment quality time ayah dan anak dengan konten Nosa Kids!')">
+          <div style="font-size:3rem">👨‍👧</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 88</span>
+          </div>
+        </div>
+        <div class="moment-card fade-up" onclick="openLightbox('Koleksi Lengkap!', '🎒', 'Semua produk Nosa Kids Station sudah lengkap!')">
+          <div style="font-size:3rem">🎒</div>
+          <div class="moment-overlay">
+            <i class="fas fa-heart"></i>
+            <span>❤️ 73</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="upload-cta-box fade-up">
+        <h3>📲 Bagikan Momenmu!</h3>
+        <p>Upload foto atau video si kecil menikmati produk Nosa Kids dan tag kami di Instagram, TikTok, atau kirim langsung via WhatsApp untuk tampil di galeri ini!</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="https://instagram.com/nosakidsstation" class="btn btn-secondary" target="_blank">
+            <i class="fab fa-instagram"></i> Tag @nosakidsstation
+          </a>
+          <a href="https://wa.me/6282240142587?text=Halo!%20Saya%20mau%20berbagi%20foto%20bersama%20produk%20Nosa%20Kids%20%F0%9F%93%B8" class="btn btn-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <div class="lightbox-img" id="lightboxImg"></div>
+    <div class="lightbox-body">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc" style="color:var(--text-muted);margin-top:8px"></p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">Nosa <span>Kids</span> Station</span>
+        <p>Menghadirkan dunia pengetahuan dalam animasi berwarna-warni yang memukau untuk anak-anak Indonesia.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@NosaKidsStation" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com/nosakidsstation" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/nosakidsstation" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://tiktok.com/@nosa.kids.station" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Beranda</a></li>
+          <li><a href="tentang.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Tentang Kami</a></li>
+          <li><a href="produk.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Produk</a></li>
+          <li><a href="galeri.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Galeri</a></li>
+          <li><a href="kontak.html"><i class="fas fa-chevron-right" style="font-size:0.7rem"></i> Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="https://tokopedia.com" target="_blank"><i class="fas fa-store" style="font-size:0.7rem"></i> Tokopedia</a></li>
+          <li><a href="https://shopee.co.id" target="_blank"><i class="fas fa-shopping-bag" style="font-size:0.7rem"></i> Shopee</a></li>
+          <li><a href="https://tiktok.com/shop" target="_blank"><i class="fab fa-tiktok" style="font-size:0.7rem"></i> TikTok Shop</a></li>
+          <li><a href="https://wa.me/6282240142587" target="_blank"><i class="fab fa-whatsapp" style="font-size:0.7rem"></i> Order via WA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Newsletter</h4>
+        <p style="font-size:0.88rem;opacity:0.7;margin-bottom:14px">Update konten & promo eksklusif!</p>
+        <input type="email" placeholder="Email Anda..." />
+        <button class="btn btn-primary btn-block" onclick="alert('Terima kasih sudah subscribe! 🎉')">📬 Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 Nosa Kids Station. All rights reserved. Made with ❤️ for children of Indonesia.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6282240142587?text=Halo%20Nosa%20Kids!" class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-float-tooltip">Chat via WhatsApp</span>
+</a>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Tab switching
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+
+  // Video category filter
+  function filterVideos(cat, btn) {
+    document.querySelectorAll('.video-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.vcat === cat) ? 'block' : 'none';
+    });
+  }
+
+  // Open YouTube video in new tab
+  function openVideoLink(videoId) {
+    // Replace VIDEO_ID with actual YouTube video IDs
+    if (videoId.startsWith('VIDEO_ID')) {
+      window.open('https://www.youtube.com/@NosaKidsStation', '_blank');
+    } else {
+      window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+    }
+  }
+
+  // Lightbox
+  function openLightbox(title, emoji, desc) {
+    document.getElementById('lightboxTitle').textContent = title;
+    document.getElementById('lightboxDesc').textContent = desc;
+    document.getElementById('lightboxImg').textContent = emoji;
+    document.getElementById('lightboxImg').style.fontSize = '8rem';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.classList.contains('lightbox-close')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
